@@ -1,0 +1,154 @@
+/* landing.css */
+.carousel-container {
+    width: 100vw;
+    overflow: hidden;
+    margin: 0 auto; /* Center the carousel */
+    position: relative;
+  }
+  
+  .carousel-slide {
+    position: relative;
+  }
+  
+  .carousel-container img {
+    width: 100%;
+    height: 75vh; /* Full viewport height */
+    object-fit: cover; 
+  }
+  
+  .carousel-content {
+    position: absolute;
+    top: 80%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .carousel-content h2 {
+    margin: 0;
+    font-size: 4vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .carousel-content h2:hover{
+    color: rgb(217,108,44);
+  }
+  
+  .carousel-content p {
+    margin: 10px 0;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .carousel-content button {
+    padding: 15px 30px;
+    font-size: 16px;
+    color: #fff;
+    background-color:rgb(217,108,44) ;
+    border: none;
+    /* border-radius: 5px; */
+    cursor: pointer;
+  }
+  
+  .carousel-content button:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Customize slick dots */
+  .slick-dots {
+    bottom: 20px; /* Position the dots above the bottom of the viewport */
+  }
+  
+  .slick-dots li button:before {
+    font-size: 12px;
+    color: white; /* Color of the dots */
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #007bff; /* Color of the active dot */
+
+   
+  }
+
+  .carousel-container h3{
+    margin-top: 1%;
+      font-size: 2vw; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      text-align: center;
+      color: rgb(217,108,44);
+
+  }
+  
+  .line-image{
+    height: 10px;
+    width: 100%;
+  }
+  .line-image img{
+    width: 100%;
+    height: 100%;
+  }
+  .landing-page{
+    height: 100%;
+    width: 100%;
+    background-image: url("../assets/moviebg 1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .video-section{
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .video-item {
+    position: relative;
+    overflow: hidden;
+    border: 5px solid black;
+    height: 200px; /* Adjust height as needed */
+    width: 30%; /* Adjust width as needed */
+    margin: 10px;
+    transition: transform 0.3s ease-in-out; /* Transition for zoom effect */
+  }
+  
+  .video-item:hover {
+    transform: scale(1.03); /* Zoom effect on hover */
+    border: 5px solid rgb(217,108,44);
+  }
+  
+  .video-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    width: 100%;
+    opacity: 0; /* Hide content initially */
+    transition: opacity 0.3s ease-in-out; /* Transition for opacity */
+  }
+  
+  .video-item:hover .video-content {
+    opacity: 1; /* Show content on hover */
+  }
+  
+  .video-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out; /* Transition for image */
+  }
+  
+  .video-item:hover img {
+    transform: scale(1.1); /* Zoom effect on hover */
+  }
+  
+  
+  
+  
+  
