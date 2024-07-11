@@ -1,0 +1,147 @@
+.footer {
+  
+   padding-top: 3%;
+    border: 1px solid orange;
+    background-color: #000;
+    color:rgb(209, 197, 197);
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.footer-left {
+    flex: 1;
+    text-align: left;
+}
+
+.footer-left h2, .footer-left p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-logo {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.get-ticket-btn {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add transition */
+}
+
+.get-ticket-btn:hover {
+    color: black;
+    background-color: white;
+}
+
+
+.footer-sections {
+    
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+}
+
+.footer-section {
+    margin: 0 20px;
+}
+.footer-section p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+    margin-bottom: 10px;
+}
+
+.footer-section h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ff6600;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.newsletter-subscribe {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.newsletter-subscribe input[type="email"] {
+    width: 100%;
+    border-radius: 0;
+    background-color: #fff;
+    padding: 13px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 2.1;
+}
+
+.newsletter-subscribe input[type="checkbox"] {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 10px;
+}
+
+.subscribe-btn {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 18px; /* Increase font size */
+}
+
+.footer-bottom {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+.social-media i {
+    font-size: 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.footer-bottom-copy{
+    color: rgb(209, 197, 197);
+    background-color: #242121;
+    margin-top: 5%;
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 20%;
+    width: 100%;
+    text-align: center;
+   
+}
+#email-input{
+    height: 20%;
+    width: 60%;
+    border: none;
+    border-radius: 2px;
+}

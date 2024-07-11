@@ -48,6 +48,7 @@
     font-size: 16px;
     color: #fff;
     background-color:rgb(217,108,44) ;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add transition */
     border: none;
     /* border-radius: 5px; */
     cursor: pointer;
@@ -148,7 +149,106 @@
     transform: scale(1.1); /* Zoom effect on hover */
   }
   
+  .movie-playing{
+    height: 10vh;
+    width: 100vw;
+    /* border: 1px solid black; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 1vw;
+    color:rgb(217,108,44) ;
+  }
+  .movie-playing h3{
+    font-size: 20px;
+    color: rgb(131,131,131);
+    font-weight: 400;
+  }
+  .movie-playing-child {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 16px;
+}
+
+.card {
+    width: 272px;
+    height: 390px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease; /* Smooth transition for image */
+}
+
+.card:hover img {
+    transform: scale(1.1); /* Scale image on hover */
+}
+
+.card-info {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 10px; /* Space between the card and the info */
+}
+
+.card-info h2 {
+    font-size: 1.25em;
+    margin: 0.5em 0;
+}
+
+.card-info p {
+    font-size: 1em;
+    padding: 0 1em;
+}
+
+.premiere-child{
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+
+}
+.premiere-card-container{
+  width: 40%;
+  height: 100%;
+  border: 1px solid green;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   
-  
-  
-  
+}
+
+.premiere-card-container img{
+  width: 70%;
+  height: 50%;
+  /* border: 1px solid red; */
+ 
+}
+.premiere-card-info{
+  margin-top: -20%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid red;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+}
+.premiere-card-info h2,p{
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
