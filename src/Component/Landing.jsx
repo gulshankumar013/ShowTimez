@@ -207,6 +207,7 @@ import "../css/landing.css"; // Import your CSS for additional styling if needed
 import Footer from "./Footer";
 
 const api = "http://localhost:5164/fetchmoviePlaying";
+const commingApi = "http://localhost:5164/fetchUpcomingMovie";
 
 const Landing = () => {
   const [movie, setMovie] = useState([]);
@@ -215,7 +216,7 @@ const Landing = () => {
     moviePlay();
   }, []);
 
-  // Fetch movies from the API
+  // Fetch now palying movies from the API
   const moviePlay = async () => {
     try {
       const response = await axios.post(api, { eventID: "1001" });
@@ -234,6 +235,32 @@ const Landing = () => {
     }
   };
 
+   // Fetch now palying movies from the API
+   const [comingMovie, setComingMovie] = useState([]);
+
+   useEffect(()=>{
+    upcomingMovie();
+   },[])
+
+   const upcomingMovie = async () => {
+    try {
+      const response = await axios.post(commingApi, { eventID: "1001" });
+      console.log("API Response:", response.data); // Log the entire response
+      if (response.status === 200) {
+        const responseData = response.data;
+        if (responseData.rData && responseData.rData.users) {
+          setComingMovie(responseData.rData.users);
+          console.log("Movies:", responseData.rData.users);
+        } else {
+          console.log("No movie data in response");
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
+  };
+
+
   const settings = {
     dots: true,
     infinite: true,
@@ -241,7 +268,7 @@ const Landing = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 4000,
   };
 
   return (
@@ -383,19 +410,25 @@ const Landing = () => {
     ))}
 </div>
 
+<div className="movie-playing">
+        
+        <h1 style={{color:'rgb(235,77,99)'}}>Upcomming Movie</h1>
+      </div>
 
-    <div className="premiere-child">
-    {movie.map((item, index) => (
-          <div className="premiere-card-container" key={index}>
-              <img src={item.image} alt={item.name} />
-            <div className="premiere-card-info">
-              <h2 style={{ fontWeight: '600' }}>{item.name}</h2>
-              <p>{item.discription}</p>
-              <h3>{item.movie_time}</h3>
-            </div>
+<div className="premiere-child">
+      
+      <img id="popcorn" src="popcorn.png" alt="" />
+     
+      {comingMovie.map((item, index) => (
+        <div className="premiere-card-container" key={index}>
+          <img src={item.image} alt={item.name} />
+          <div className="premiere-card-info">
+            <h2>{item.name}</h2>
+            <p>{item.description}</p>
+            <h3>{item.movie_time}</h3>
           </div>
-          
-        ))}
+        </div>
+      ))}
     </div>
 
       <Footer/>

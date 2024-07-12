@@ -40,7 +40,7 @@ const Addmovieplaying = () => {
       },
     };
     try {
-      const response = await axios.post("http://localhost:5164/moviePlaying",payload);
+      const response = await axios.post("http://localhost:5164/upcomingMovie",payload);
       console.log(response.data, "api response"); // handle response
       toast.success('Card added successfully');
       fetchProduct()
