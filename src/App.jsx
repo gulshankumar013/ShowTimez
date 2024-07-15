@@ -6,6 +6,12 @@ import Landing from './Component/Landing';
 import Addmovieplaying from './Dashbord/Addmovieplaying';
 import Login from './Component/Login';
 import Register from './Component/Register';
+import { Bounce, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { BsBoundingBoxCircles } from 'react-icons/bs';
+import Profile from './Component/Profile';
+import MovieDetails from './Component/MovieDetails';
+
 
 
 const App = () => {
@@ -25,17 +31,42 @@ const App = () => {
         {
           path:"/register",
           element:<Register/>
-        }       
+        },
+        {
+          path:"/profile",
+          element:<Profile/>
+        },
+        {
+          path:"/moviedetails",
+          element:<MovieDetails/>
+        }
+              
       ]
     },
     {
       path:"/addmovieplaying",
       element:<Addmovieplaying/>
-    }
+    },
+    
   ]);
 
   return (
+    <>
     <RouterProvider router={router} />
+    <ToastContainer
+      position="top-center"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+      transition={Bounce}
+/>
+    </>
   );
 }
 

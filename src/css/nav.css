@@ -48,6 +48,64 @@
   cursor: pointer;
 }
 
+.selected-city {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-right: 10px;
+}
+
+.selected-city img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+/* City dropdown styles */
+.city-dropdown {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: absolute;
+  top: 70px;
+  right: 50px;
+  background: white;
+  border: 1px solid #ccc;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+  border-radius: 4px;
+}
+
+.city-dropdown.show {
+  width: 10%;
+  display: flex;
+}
+
+.city-option {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.city-option:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.city-option img {
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  margin-right: 10px;
+}
+
+.city-option span {
+  font-size: 16px;
+  color: black;
+}
+
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
   .nav-links {
@@ -96,6 +154,7 @@
 }
 
 .search-dropdown.show {
+
   top: 0;
 }
 
@@ -115,10 +174,11 @@
   align-items: center;
 }
 
-.search-div{
+.search-div {
   height: 100%;
   width: 50%;
 }
+
 .search-content button {
   height: 60%;
   width: 46%;
@@ -127,7 +187,6 @@
   transition: background-color 0.3s ease, color 0.3s ease;
   border: none;
   margin: 2%;
- 
 }
 
 .search-content button:hover {

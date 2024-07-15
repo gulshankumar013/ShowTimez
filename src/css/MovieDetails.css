@@ -1,0 +1,46 @@
+/* MovieDetails.css */
+
+.movie-details {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .movie-details h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  .movie-details p {
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+  
+  .movie-details h2 {
+    font-size: 2em;
+    margin-top: 1.5em;
+  }
+  
+  .cast, .crew {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .cast-member, .crew-member {
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .cast-member img, .crew-member img {
+    width: 80%;
+    height: 67%;
+    border-radius: 10px;
+  }
+  
+  .cast-member p, .crew-member p {
+    margin-top: 10px;
+    font-size: 1.1em;
+  }
+  

@@ -155,3 +155,41 @@
     background-color: rgb(200, 90, 30);
   }
   
+
+@media (max-width: 1024px) {
+  .login-container {
+    width: 60%; /* Adjust container width for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    width: 80%; /* Adjust container width for mobile phones */
+  }
+  
+  .login-tabs {
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  
+  .login-tabs a {
+    flex: 1 0 auto;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .checkbox {
+    margin-left: 0; /* Reset margin for checkbox */
+    margin-bottom: 10px; /* Adjust margin for spacing */
+  }
+  
+  .form-options label {
+    width: auto; /* Adjust width for labels */
+    margin-bottom: 10px; /* Adjust margin for spacing */
+  }
+}

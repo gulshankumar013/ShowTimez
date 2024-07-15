@@ -1,0 +1,44 @@
+/* toastify-custom.css */
+
+.Toastify__toast-container {
+    border-radius: 10px;
+  }
+  
+  .Toastify__toast {
+    border-radius: 10px;
+  }
+  
+  .Toastify__toast--success {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .Toastify__toast--error {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+  .Toastify__close-button {
+    color: #fff;
+  }
+  
+  .Toastify__progress-bar {
+    background: linear-gradient(to right, #4caf50, #81c784);
+  }
+  
+  .Toastify__icon {
+    animation: fadeIn 0.5s ease-in-out;
+    margin-right: 8px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
