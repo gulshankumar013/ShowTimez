@@ -164,11 +164,11 @@
     font-weight: 400;
   }
   .movie-playing-child {
-    margin-left: 1.5%;
+    margin-left: 10%;
     height: 50%;
-    width: 98.2%;
+    width: 80%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 

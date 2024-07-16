@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Slider from "react-slick";
@@ -6,13 +5,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../css/landing.css"; // Import your CSS for additional styling if needed
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const api = "http://localhost:5164/fetchmoviePlaying";
 const commingApi = "http://localhost:5164/fetchUpcomingMovie";
 
 const Landing = () => {
   const [movie, setMovie] = useState([]);
+  let navigate = useNavigate()
 
   useEffect(() => {
     moviePlay();
@@ -37,14 +37,14 @@ const Landing = () => {
     }
   };
 
-   // Fetch now palying movies from the API
-   const [comingMovie, setComingMovie] = useState([]);
+  // Fetch now palying movies from the API
+  const [comingMovie, setComingMovie] = useState([]);
 
-   useEffect(()=>{
+  useEffect(() => {
     upcomingMovie();
-   },[])
+  }, []);
 
-   const upcomingMovie = async () => {
+  const upcomingMovie = async () => {
     try {
       const response = await axios.post(commingApi, { eventID: "1001" });
       console.log("API Response:", response.data); // Log the entire response
@@ -61,7 +61,6 @@ const Landing = () => {
       console.error("Error fetching movies:", error);
     }
   };
-
 
   const settings = {
     dots: true,
@@ -199,53 +198,45 @@ const Landing = () => {
         <h1>Movie Now Playing</h1>
       </div>
       <div className="movie-playing-child">
-      {movie.map((item, index) => (
-  <Link
-    className="card-container"
-    key={index}
-    to={{
-      pathname: "/moviedetails",
-      state: { item }
-    }}
-  >
-    <div className="card">
-      <img src={item.image} alt={item.name} />
-    </div>
-    <div className="card-info">
-      <h2 style={{ fontWeight: "600" }}>{item.name}</h2>
-      <p>{item.description}</p>
-    </div>
-  </Link>
-))}
-
-</div>
-
-<div className="movie-playing">
-        
-        <h1 style={{color:'rgb(235,77,99)'}}>Upcomming Movie</h1>
+        {movie.map((item, index) => (
+          <div
+            className="card-container"
+            key={index}
+            onClick={()=>{navigate("/moviedetails",{state: { item }})}}
+          >
+            <div className="card">
+              <img src={item.image} alt={item.name} />
+            </div>
+            <div className="card-info">
+              <h2 style={{ fontWeight: "600" }}>{item.name}</h2>
+              <p>{item.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
 
-<div className="premiere-child">
-      
-      <img id="popcorn" src="popcorn.png" alt="" />
-     
-      {comingMovie.map((item, index) => (
-        <div className="premiere-card-container" key={index}>
-          <img src={item.image} alt={item.name} />
-          <div className="premiere-card-info">
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-            <h3>{item.movie_time}</h3>
-          </div>
-        </div>
-      ))}
-    </div>
+      <div className="movie-playing">
+        <h1 style={{ color: "rgb(235,77,99)" }}>Upcomming Movie</h1>
+      </div>
 
-      <Footer/>
+      <div className="premiere-child">
+        <img id="popcorn" src="popcorn.png" alt="" />
+
+        {comingMovie.map((item, index) => (
+          <div className="premiere-card-container" key={index}>
+            <img src={item.image} alt={item.name} />
+            <div className="premiere-card-info">
+              <h2>{item.name}</h2>
+              <p>{item.description}</p>
+              <h3>{item.movie_time}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <Footer />
     </div>
-    
   );
 };
 
 export default Landing;
-

@@ -1,46 +1,80 @@
-/* MovieDetails.css */
+.bookTicket {
+  height: 10%;
+  width: 20%;
+  margin: 1%;
+  padding: 1%;
+  background-color: rgb(217, 108, 44);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.bookTicket:hover {
+  background-color: rgb(216, 207, 207);
+  color: black;
+}
 
 .movie-details {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-  }
-  
-  .movie-details h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
-  }
-  
-  .movie-details p {
-    font-size: 1.2em;
-    line-height: 1.6;
-  }
-  
-  .movie-details h2 {
-    font-size: 2em;
-    margin-top: 1.5em;
-  }
-  
-  .cast, .crew {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .cast-member, .crew-member {
-    width: 200px;
-    margin: 10px;
-    text-align: center;
-  }
-  
-  .cast-member img, .crew-member img {
-    width: 80%;
-    height: 67%;
-    border-radius: 10px;
-  }
-  
-  .cast-member p, .crew-member p {
-    margin-top: 10px;
-    font-size: 1.1em;
-  }
-  
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.movie-details h1 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.movie-details p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.movie-details h2 {
+  font-size: 1.5em;
+  margin-top: 1em; /* Adjusted margin to reduce gap */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cast, .crew {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1em; /* Added margin to adjust gap */
+}
+
+.cast-member, .crew-member {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  text-align: center;
+}
+
+.cast-item, .crew-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.cast-item img, .crew-item img {
+  width: 100%;
+  max-width: 150px; /* Adjust as needed */
+  height: 150px; /* Adjust as needed */
+  border-radius: 5px;
+  object-fit: cover; /* Ensure the image covers the area */
+}
+
+.cast-item p, .crew-item p {
+  margin-top: 10px;
+  font-size: 0.8em;
+}
+
+.cast-member {
+  margin-bottom: 1em; /* Ensure space between cast and crew */
+}
+
+.crew-member {
+  margin-top: 1em; /* Ensure space between cast and crew */
+}
