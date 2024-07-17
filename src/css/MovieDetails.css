@@ -1,3 +1,4 @@
+/* MovieDetails.css */
 .bookTicket {
   height: 10%;
   width: 20%;
@@ -19,6 +20,16 @@
   max-width: 1200px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .movie-details h1 {
@@ -49,6 +60,41 @@
   flex-direction: row;
   margin: 10px;
   text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+.cast-member:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.cast-member:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.cast-member:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.cast-member:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.cast-member:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.crew-member:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.crew-member:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.crew-member:nth-child(3) {
+  animation-delay: 0.6s;
 }
 
 .cast-item, .crew-item {

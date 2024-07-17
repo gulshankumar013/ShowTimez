@@ -1,0 +1,194 @@
+.register-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .register-header {
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  
+  .header-image {
+    margin-left: -1%;
+    width: 102%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .register-header h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2.5rem;
+  }
+  
+  .register-header nav {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  
+  .register-header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  .register-header nav span {
+    color: white;
+  }
+  
+  .register-container {
+    width: 40%;
+    margin-top: 50px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 5px;
+    margin-bottom: 10%;
+  }
+  
+  .register-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .register-tabs a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .register-tabs a.active-tab {
+    border-color: rgb(217, 108, 44);
+  }
+  
+  .register-form label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
+  
+  .register-form label span {
+    color: red;
+  }
+  
+  .register-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .password-label {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .password-input {
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-input input {
+    flex: 1;
+  }
+  
+  .password-toggle-icon {
+    margin-left: -20px;
+    cursor: pointer;
+  }
+  
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px  0;
+  }
+  
+  .checkbox {
+    margin-left: -60%;
+    margin-bottom: 1.4%;
+  }
+  
+  .form-options label {
+    height: 10%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-options a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .form-options a:hover {
+    text-decoration: underline;
+  }
+  
+  #register-button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(217, 108, 44);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  #register-button:hover {
+    background-color: rgb(200, 90, 30);
+  }
+  
+  @media (max-width: 1024px) {
+    .register-container {
+      width: 60%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .register-container {
+      width: 80%;
+    }
+    
+    .register-tabs {
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    
+    .register-tabs a {
+      flex: 1 0 auto;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .form-options {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .checkbox {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+    
+    .form-options label {
+      width: auto;
+      margin-bottom: 10px;
+    }
+  }
+  

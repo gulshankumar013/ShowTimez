@@ -1,0 +1,160 @@
+.booking-movie {
+    height: 100%;
+    width: 100%;  
+  }
+  
+  .booking-movie-child {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    height: 40%;
+    width: 100%;
+    /* border: 1px solid rgb(230, 21, 21); */
+    background-color: rgb(44, 39, 52);
+  }
+  
+  .booking-movie-image {
+    /* border: 1px solid white; */
+    height: 90%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .movie-poster {
+    width: 46%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .booking-movie-details {
+    /* border: 1px solid white; */
+    height: 90%;
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .movie-name {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin: 0;
+  }
+  
+  .movie-time {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin: 0;
+  }
+  
+  .movie-details-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin: 0;
+  }
+  
+
+
+   /* new css */
+
+
+   .booking-movie {
+    height: 100%;
+    width: 100%;  
+  }
+  
+  .booking-movie-child {
+    padding: 20px;
+    background-color: rgb(44, 39, 52);
+    color: white;
+  }
+  
+  .booking-movie-image {
+    height: 90%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .movie-poster {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .booking-movie-details {
+    height: 90%;
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .movie-name, .movie-time, .movie-details-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin: 5px 0;
+  }
+  
+  .theater-list {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .theater {
+    background-color: #333;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .theater-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .theater-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  
+  .theater-header span {
+    color: #aaa;
+  }
+  
+  .expand-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .showtimes {
+    margin-top: 10px;
+  }
+  
+  .showtime {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .showtime:hover {
+    background-color: #555;
+  }
+  

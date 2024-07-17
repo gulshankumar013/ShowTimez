@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { BsBoundingBoxCircles } from 'react-icons/bs';
 import Profile from './Component/Profile';
 import MovieDetails from './Component/MovieDetails';
+import TheaterList from './Component/TheaterList';
 
 
 
@@ -39,6 +40,10 @@ const App = () => {
         {
           path:"/moviedetails",
           element:<MovieDetails/>
+        },
+        {
+          path:"/theaterList",
+          element:<TheaterList/>
         }
               
       ]
