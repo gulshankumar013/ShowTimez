@@ -11,7 +11,7 @@ const MovieDetails = () => {
   const location = useLocation();
   const navigate = useNavigate(); 
   const item = location.state?.item || {}; // Provide a default value if location.state is null
-  console.log("item", item);
+  // console.log("item", item);
 
   useEffect(() => {
     if (item.id) { // Check if item.id exists

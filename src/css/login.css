@@ -196,7 +196,7 @@
 }
 
 /* Popup Styles */
-.popup-container {
+.login-popup-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -209,7 +209,7 @@
   z-index: 1000;
 }
 
-.popup-content {
+.login-popup-content {
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -218,23 +218,23 @@
   animation: zoomIn 0.5s ease;
 }
 
-.popup-content img {
+.login-popup-content img {
   width: 50px;
   height: 50px;
 }
 
-.popup-content h2 {
+.login-popup-content h2 {
   margin: 20px 0;
   font-size: 1.5rem;
   color: #28a745;
 }
 
-.popup-content p {
+.login-popup-content p {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 20px;
 }
 
-.popup-content button {
+.login-popup-content button {
   padding: 10px 20px;
   background: #28a745;
   color: white;
@@ -243,7 +243,7 @@
   cursor: pointer;
 }
 
-.popup-content button:hover {
+.login-popup-content button:hover {
   background: #218838;
 }
 

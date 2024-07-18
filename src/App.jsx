@@ -12,6 +12,7 @@ import { BsBoundingBoxCircles } from 'react-icons/bs';
 import Profile from './Component/Profile';
 import MovieDetails from './Component/MovieDetails';
 import TheaterList from './Component/TheaterList';
+import SeatBooking from './Component/SeatBooking';
 
 
 
@@ -44,6 +45,10 @@ const App = () => {
         {
           path:"/theaterList",
           element:<TheaterList/>
+        },
+        {
+          path:"/seatbooking",
+          element:<SeatBooking/>
         }
               
       ]
