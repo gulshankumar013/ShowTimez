@@ -8,12 +8,12 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 const TheaterList = () => {
   const location = useLocation();
-  const { image, aboutMovie, name, movie_time } = location.state || {};
+  const { image, aboutMovie, name, movie_time,discription} = location.state || {};
   const [theater, setTheater] = useState([]);
   const [expandedTheater, setExpandedTheater] = useState(null);
   const navigate = useNavigate();
-  // const item = location.state?.item || {};
-  console.log("image",image)
+
+   console.log("discription",discription)
 
   useEffect(() => {
     theaterList();
@@ -46,7 +46,7 @@ const TheaterList = () => {
   };
 
   let bookTicket = ()=>{
-    navigate("/seatbooking",{state:{image}});
+    navigate("/seatbooking",{state:{image,name,movie_time,discription}});
   }
 
 

@@ -47,11 +47,11 @@ const MovieDetails = () => {
 
   const handleBookTicket = () => {
     // Navigate to TheaterList component and pass movie name, image, and aboutMovie as props
-    navigate("/theaterList", { state: { image: item.image, aboutMovie: item.aboutMovie, name: item.name, movie_time:item.movie_time } });
+    navigate("/theaterList", { state: { image: item.image, aboutMovie: item.aboutMovie, name: item.name, movie_time:item.movie_time,discription:item.discription } });
   };
   return (
     <>
-    <div className="movie-details">
+    <div className="movie-detail">
       <button className='bookTicket'  onClick={handleBookTicket} >Book Ticket</button>
       <h1>{item.name}</h1>
       <p style={{fontSize:"15px"}}>{item.aboutMovie}</p>

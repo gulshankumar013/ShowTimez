@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import '../css/seatBooking.css'; // Import CSS for the popup styling
+import Footer from './Footer';
+
 
 const SeatBooking = () => {
   const [showPopup, setShowPopup] = useState(true); // State to control popup visibility
   const [selectedSeats, setSelectedSeats] = useState({});
+  const [totalAmount, setTotalAmount] = useState(0); // State to track the total amount
   const navigate = useNavigate();
   const location = useLocation();
-  const { image} = location.state;
-  // console.log("image",image)
+  const { image, name, movie_time, discription } = location.state;
 
   const handleAccept = () => {
     setShowPopup(false); // Close the popup on accepting terms
@@ -22,20 +24,52 @@ const SeatBooking = () => {
   const toggleSeatSelection = (section, row, seat) => {
     setSelectedSeats((prevSelectedSeats) => {
       const newSelectedSeats = { ...prevSelectedSeats };
+  
+      // Price of each section
+      const sectionPrices = {
+        Executive: 270,
+        Club: 290,
+        Royale: 310,
+        'Royale Recliner': 500
+      };
+  
+      // Calculate total amount
+      let newTotalAmount = totalAmount;
+  
       if (!newSelectedSeats[section]) {
         newSelectedSeats[section] = {};
       }
+  
       if (!newSelectedSeats[section][row]) {
         newSelectedSeats[section][row] = [];
       }
+  
       if (newSelectedSeats[section][row].includes(seat)) {
         newSelectedSeats[section][row] = newSelectedSeats[section][row].filter((s) => s !== seat);
+  
+        // Remove row if empty
+        if (newSelectedSeats[section][row].length === 0) {
+          delete newSelectedSeats[section][row];
+        }
+  
+        // Remove section if empty
+        if (Object.keys(newSelectedSeats[section]).length === 0) {
+          delete newSelectedSeats[section];
+        }
+  
+        // Update total amount
+        newTotalAmount -= sectionPrices[section];
       } else {
         newSelectedSeats[section][row].push(seat);
+        // Update total amount
+        newTotalAmount += sectionPrices[section];
       }
+  
+      setTotalAmount(newTotalAmount);
       return newSelectedSeats;
     });
   };
+  
 
   const renderSection = (title, price, rows, seatsPerRow, occupiedSeats = {}, isRecliner = false) => (
     <div className="section" key={title}>
@@ -65,7 +99,12 @@ const SeatBooking = () => {
   const renderSelectedSeats = () => {
     const selectedSections = Object.keys(selectedSeats);
     if (selectedSections.length === 0) {
-      return <p>No seats selected</p>;
+      return (
+        <div className="no-seats-selected">
+          <img src={"cinema-seat.svg"} alt="No seats selected" className="no-seats-image" />
+          <p>No seats selected</p>
+        </div>
+      );
     }
 
     return selectedSections.map((section) => (
@@ -81,32 +120,52 @@ const SeatBooking = () => {
     ));
   };
 
+
+  const handleProceedToPay = () => {
+    const options = {
+      key: "rzp_test_90ZILGzyAn0OTE",
+      key_secret: "4IfoRyvUFIy99YpDscnUxT9R", // Replace with your Razorpay key
+      amount: totalAmount * 100, // Amount in paise (1 INR = 100 paise)
+      currency: 'INR',
+      name: 'Movie Ticket Booking',
+      description: 'Payment for movie tickets',
+      handler: function (response) {
+        // Handle successful payment here
+        console.log(response);
+        alert('Payment Successful');
+        // Optionally, redirect to a success page or clear selection
+      },
+      prefill: {
+        name: 'Customer Name',
+        email: 'customer@example.com',
+        contact: '1234567890'
+      },
+      theme: {
+        color: '#3399cc'
+      }
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
+
   return (
     <>
-    
       {showPopup && (
         <div className="term-condition-popup-overlay">
           <div className="term-condition-popup">
             <h2>Terms and Conditions</h2>
             <ol className="terms-list">
-            1. The seat layout page for INOX movies is for representational purposes only and the actual seat layout might vary.
-2. Ticket is compulsory for children of 3 years & above.
-3. Patrons below the age of 18 years cannot be admitted for movies certified A.
-4. A baggage counter facility is not available at this cinema.
-5. For 3D movies, ticket price includes charges towards usage of 3D glasses.  
-6. Outside Food and beverages are not allowed On the cinema premises.  
-7. Items like laptops, cameras, knives, lighters, matchboxes, cigarettes, firearms, and all types of inflammable objects are strictly prohibited.  
-8. Items, like carry bags, eatables, helmets, and handbags, are not allowed inside the theatres and are strictly prohibited. Kindly deposit at the baggage counter of the mall.
-9. Patrons under the influence of alcohol or any other form of drugs will not be allowed inside the cinema premises.
-10. Tickets once purchased at the cinema box office cannot be canceled, exchanged, or refunded.
-11. INOX may contact the guest to seek feedback for service improvement.  
-12. Decision(s) taken by INOX shall be final and binding, Rights of admission reserved.
-13. Pre-booked food & beverage needs to be collected from the F&B counter.
-14. Recording of a film through mobile or camera is strictly prohibited and is a punishable offense.
-15. Smoking is strictly not permitted inside the cinema premises. Cigarettes/lighters/matchsticks/Gutkha/Pan masala etc. will not be allowed.    
-16. Ticket prices are subject to change without any prior notification.
-17. For celebrating Birthday parties and special occasions, kindly contact the cinema manager.
-18. Infants or children less than 4 years of age, or those under 3.6 feet in height, being prohibited from entering the 4DX Auditorium.
+              <li>The seat layout page for INOX movies is for representational purposes only and the actual seat layout might vary.</li>
+              <li>Ticket is compulsory for children of 3 years & above.</li>
+              <li>Patrons below the age of 18 years cannot be admitted for movies certified A.</li>
+              <li>A baggage counter facility is not available at this cinema.</li>
+              <li>For 3D movies, ticket price includes charges towards usage of 3D glasses.</li>
+              <li>Outside Food and beverages are not allowed On the cinema premises.</li>
+              <li>Items like laptops, cameras, knives, lighters, matchboxes, cigarettes, firearms, and all types of inflammable objects are strictly prohibited.</li>
+              <li>Items, like carry bags, eatables, helmets, and handbags, are not allowed inside the theatres and are strictly prohibited. Kindly deposit at the baggage counter of the mall.</li>
+              <li>Patrons under the influence of alcohol or any other form of drugs will not be allowed inside the cinema premises.</li>
+              <li>Tickets once purchased at the cinema box office cannot be canceled, exchanged, or refunded.</li>
             </ol>
             <div className="term-condition-popup-buttons">
               <button onClick={handleAccept}>Accept</button>
@@ -116,14 +175,24 @@ const SeatBooking = () => {
         </div>
       )}
       <div className="seat-layout">
-        <div className="movie-details">
-          {image && <img src={image} alt="movie poster" />}
-          {/* {name && <h2 className="movie-name">{name}</h2>}
-          {movie_time && <h3 className="movie-time">{movie_time}</h3>} */}
+        <div className="movie-booking-heading">
+          <p>Booking summary</p>
         </div>
         <div className="screen">
           <img src="screess.svg" alt="Screen" />
-          <h2>Screen</h2>
+          <div className="booking-summary">
+            <div className="movie-poster">
+              {image && <img src={image} alt="movie poster" />}
+            </div>
+            <div className="booking-details">
+              {name && <h2 className="movie-name">{name}</h2>}
+              {discription && <p className="show-time">{discription}</p>}
+              <p className="show-time">Fri, 26 Jul, 11:30 AM - 2:27 PM</p>
+              <p className="cinema-location"></p>
+              {movie_time && <h3 className="movie-time">{movie_time}</h3>}
+              
+            </div>
+          </div>
         </div>
         <br />
         <div className="seat-info">
@@ -142,11 +211,12 @@ const SeatBooking = () => {
           <div className="selected-seats">
             <h3>Selected Seats</h3>
             {renderSelectedSeats()}
-            <button className="proceed-to-pay">Proceed to Pay</button>
+            <h3>Total Amount: ₹{totalAmount.toFixed(2)}</h3>
+            <button className="proceed-to-pay" onClick={handleProceedToPay} >Proceed to Pay</button>
           </div>
-          {/* {movie_time && <h3 className="movie-time">{movie_time}</h3>} */}
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

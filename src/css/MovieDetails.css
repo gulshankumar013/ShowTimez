@@ -16,7 +16,7 @@
   color: black;
 }
 
-.movie-details {
+.movie-detail {
   max-width: 1200px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
@@ -32,18 +32,18 @@
   }
 }
 
-.movie-details h1 {
+.movie-detail h1 {
   font-size: 1.5em;
   margin-bottom: 0.5em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.movie-details p {
+.movie-detail p {
   font-size: 1.2em;
   line-height: 1.6;
 }
 
-.movie-details h2 {
+.movie-detail h2 {
   font-size: 1.5em;
   margin-top: 1em; /* Adjusted margin to reduce gap */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
