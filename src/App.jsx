@@ -13,6 +13,7 @@ import Profile from './Component/Profile';
 import MovieDetails from './Component/MovieDetails';
 import TheaterList from './Component/TheaterList';
 import SeatBooking from './Component/SeatBooking';
+import ContactUs from './Component/ContactUs';
 
 
 
@@ -49,6 +50,10 @@ const App = () => {
         {
           path:"/seatbooking",
           element:<SeatBooking/>
+        },
+        {
+          path:"/contactus",
+          element:<ContactUs/>
         }
               
       ]

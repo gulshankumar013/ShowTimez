@@ -1,0 +1,159 @@
+
+.contact-page{
+    height: 100%;
+    width: 100%;
+}
+.contact-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.contact-body h1,h2{
+  font-family: "Poppins";
+}
+.contact-text{
+    color:  #4B4B4B;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-weight: 300;
+    
+}
+.contact-text2{
+    margin-top: -4%;
+    color:  #4B4B4B;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-weight: 300;
+}
+.contact-container {
+    margin-top: -4%;
+   
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 65%;
+    width: 65%;
+}
+
+.contactus-form{
+    padding: 40px;
+    flex: 1;
+}
+
+.contact-form h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactus-input-container{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    padding: 10px;
+    /* transition: background-color 0.3s ease; */
+}
+.contactus-input-container input{
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.contactus.input-container:hover {
+    background-color: #1171d8c0;
+    border: none;
+}
+
+.input-icon {
+    margin-right: 10px;
+    font-size: 1.5em;
+}
+
+.contact-input input,textarea {
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1em;
+    padding: 5px;
+   
+}
+textarea {
+    height: 100px;
+    resize: none;
+   
+}
+
+.contact-button{
+    background-color: #d65a3c;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #863824;
+    transform: translateY(-2px);
+}
+
+.contact-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f4f8;
+    flex: 1;
+    padding: 20px;
+}
+.contact-image img {
+    max-width: 128%;
+    height: 109%;
+}
+
+.stickers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sticker {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.sticker:hover {
+    transform: rotate(15deg) scale(1.1);
+}
+.contact-image{
+    background-image: url(../assests/contact.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ 
+}
+

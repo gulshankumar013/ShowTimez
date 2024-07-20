@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import '../css/seatBooking.css'; // Import CSS for the popup styling
 import Footer from './Footer';
+import axios from 'axios';
 
 
 const SeatBooking = () => {
@@ -10,7 +11,22 @@ const SeatBooking = () => {
   const [totalAmount, setTotalAmount] = useState(0); // State to track the total amount
   const navigate = useNavigate();
   const location = useLocation();
-  const { image, name, movie_time, discription } = location.state;
+  const { image, name, discription ,showTime,theaterName} = location.state;
+  const userdata = sessionStorage.getItem('userData');
+
+  //accsesing user id from session storage
+  let userId = null;
+  if (userdata) {
+    const parsedUserData = JSON.parse(userdata);
+    userId = parsedUserData.id;
+    console.log("userdata id:", parsedUserData.id);
+  } else {
+    console.log("No userdata found in sessionStorage");
+  }
+ 
+// console.log("userId",userId)
+  // console.log("showTime",showTime)
+  // console.log("theaterName",theaterName)
 
   const handleAccept = () => {
     setShowPopup(false); // Close the popup on accepting terms
@@ -121,7 +137,7 @@ const SeatBooking = () => {
   };
 
 
-  const handleProceedToPay = () => {
+  const handleProceedToPay = async () => {
     const options = {
       key: "rzp_test_90ZILGzyAn0OTE",
       key_secret: "4IfoRyvUFIy99YpDscnUxT9R", // Replace with your Razorpay key
@@ -129,11 +145,39 @@ const SeatBooking = () => {
       currency: 'INR',
       name: 'Movie Ticket Booking',
       description: 'Payment for movie tickets',
-      handler: function (response) {
+
+      handler:async function (response) {
         // Handle successful payment here
         console.log(response);
         alert('Payment Successful');
         // Optionally, redirect to a success page or clear selection
+
+        const payload ={
+          eventid:"1001",
+          addInfo:{
+            name:name,
+            image:image,
+            selectedSeats:JSON.stringify(selectedSeats),
+            discription:discription,
+            showTime:showTime,
+            theaterName:theaterName,
+            totalAmount:totalAmount,
+            user_id: userId,
+            
+          }
+        };
+        console.log(selectedSeats ,'selectedSeats')
+
+        
+        // try {
+        //   // Make API call to store booking details
+        //   const bookingResponse =  await axios.post("http://localhost:5164/booking",payload);
+        //   console.log(bookingResponse," booking api response")
+        //   alert('Booking details stored successfully');
+        // } catch (error) {
+        //   console.error('Error storing booking details:', error);
+        //   alert('Failed to store booking details');
+        // }
       },
       prefill: {
         name: 'Customer Name',
@@ -185,12 +229,11 @@ const SeatBooking = () => {
               {image && <img src={image} alt="movie poster" />}
             </div>
             <div className="booking-details">
-              {name && <h2 className="movie-name">{name}</h2>}
+              {name && <h2 className="movie-name">Movie - {name}</h2>}
               {discription && <p className="show-time">{discription}</p>}
-              <p className="show-time">Fri, 26 Jul, 11:30 AM - 2:27 PM</p>
+              {showTime && <p className="show-time">Show Time - {showTime}</p>}
+              {theaterName && <p className="show-time">At - {theaterName}</p>}
               <p className="cinema-location"></p>
-              {movie_time && <h3 className="movie-time">{movie_time}</h3>}
-              
             </div>
           </div>
         </div>
