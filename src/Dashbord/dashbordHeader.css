@@ -1,0 +1,47 @@
+/* src/Dashbord/dashbordHeader.css */
+
+.dashboard-nav {
+  padding: 1%;
+  margin-right: 20%;
+  height: 10%;
+  width: 100%;
+  background: white;
+  color: #b8b6b6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for distinction */
+  border-bottom: 3px solid #405189; /* Bottom border for highlight */
+}
+
+.dashboard-nav-logo {
+  flex: 1;
+}
+
+.dashboard-logo {
+  height: 40px;
+}
+
+.dashboard-nav-title {
+  flex: 2;
+  text-align: center;
+}
+
+.dashboard-nav-profile {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.dashboard-nav-icon {
+  color:#9898a8;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+.dashboard-nav-icon:hover {
+  color: #ddd;
+}

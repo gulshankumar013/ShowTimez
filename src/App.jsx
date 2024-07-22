@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './Component/Home'; 
@@ -8,12 +7,16 @@ import Login from './Component/Login';
 import Register from './Component/Register';
 import { Bounce, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { BsBoundingBoxCircles } from 'react-icons/bs';
 import Profile from './Component/Profile';
 import MovieDetails from './Component/MovieDetails';
 import TheaterList from './Component/TheaterList';
 import SeatBooking from './Component/SeatBooking';
 import ContactUs from './Component/ContactUs';
+import MyBookings from './Component/MyBookings';
+import Dashbordhome from './Dashbord/Dashbordhome';
+import AdminLayout from './Dashbord/AdminLayout';
+import ManageUsers from './Dashbord/ManageUsers';
+import ProfilePanel from './Dashbord/ProfilePanel';
 
 
 
@@ -54,14 +57,37 @@ const App = () => {
         {
           path:"/contactus",
           element:<ContactUs/>
+        },
+        {
+          path:"/mybooking",
+          element:<MyBookings/>
         }
               
       ]
     },
     {
-      path:"/addmovieplaying",
-      element:<Addmovieplaying/>
+      path: "/admin",
+      element: <AdminLayout/>,
+      children: [
+        {
+          path: "/admin",
+          element: <Dashbordhome/>
+        },
+        {
+          path: "/admin/addmovieplaying",
+          element: <Addmovieplaying/>
+        },
+        {
+          path: "/admin/manageusers",
+          element: <ManageUsers/>
+        }
+      ]
     },
+    {
+      path:"/adminprofilepanel",
+      element:<ProfilePanel/>
+    }
+
     
   ]);
 

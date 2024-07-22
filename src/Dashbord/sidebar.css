@@ -1,0 +1,131 @@
+/* src/Dashbord/sidebar.css */
+
+.dashbord-sidebar {
+  width: 250px; /* Expanded width */
+  height: 100vh;
+  background-color: #405189;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  transition: width 0.3s ease; /* Animate width transition */
+}
+
+.dashbord-sidebar.collapsed {
+  width: 80px; /* Collapsed width */
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.sidebar-title {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-title.hidden {
+  opacity: 0;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: absolute;
+  right: 10px; /* Adjust position for better visibility */
+  top: 20px; /* Align with the top of the sidebar header */
+}
+
+.toggle-btn:hover {
+  color: #ddd;
+}
+
+.dashbord-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashbord-sidebar ul li {
+  margin-bottom: 20px; /* Increased margin for spacing */
+}
+
+.dashbord-sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  padding: 10px; /* Padding inside each link */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.dashbord-sidebar ul li a:hover {
+  background-color: #575757;
+}
+
+.dashbord-sidebar ul li a svg {
+  margin-right: 15px; /* Increased margin between icon and text */
+  font-size: 1.5em; /* Default icon size */
+  transition: font-size 0.3s ease, margin-right 0.3s ease; /* Add margin transition */
+}
+
+.dashbord-sidebar.collapsed ul li a {
+  padding: 10px 10px; /* Reduce padding for collapsed state */
+}
+
+.dashbord-sidebar.collapsed ul li a svg {
+  margin-right: 0; /* Remove margin in collapsed state */
+  font-size: 2em; /* Larger icon size in collapsed state */
+}
+
+.sidebar-link {
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-link.hidden {
+  display: none;
+}
+
+.sidebar-icon {
+  font-size: 1.5em; /* Default icon size */
+  transition: font-size 0.3s ease;
+}
+
+.dashbord-sidebar.collapsed .sidebar-icon {
+  font-size: 2em; /* Larger icon size when collapsed */
+}
+
+.dashbord-sidebar.collapsed .sidebar-title {
+  opacity: 0; /* Hide title when collapsed */
+}
+
+.dashbord-sidebar.collapsed .sidebar-link {
+  display: none; /* Hide link text when collapsed */
+}
+
+.dashbord-sidebar.collapsed .toggle-btn {
+  right: 0; /* Adjust toggle button position when collapsed */
+}
+
+/* Content area adjustments */
+.content-area {
+  margin-left: 250px; /* Space for expanded sidebar */
+  transition: margin-left 0.3s ease; /* Animate content shift */
+}
+
+.dashbord-sidebar.collapsed ~ .content-area {
+  margin-left: 80px; /* Space for collapsed sidebar */
+}
