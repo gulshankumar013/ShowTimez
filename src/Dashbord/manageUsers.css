@@ -1,0 +1,88 @@
+/* manageUsers.css */
+
+
+.manage-user h2{
+    margin: 2%;
+  text-align: center;
+  color: #9898a8;
+}
+.user-cards-container {
+    margin-left: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .user-card {
+    font-family: "poppins";
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+    max-height: 160px; /* Adjust based on content size */
+  }
+  .user-card h3,p{
+   font-weight: 200;
+  }
+  
+  .user-card.expanded {
+    max-height: 400px; /* Adjust based on content size */
+    transition: max-height 0.3s ease-in-out;
+  }
+  
+  .user-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .user-details {
+    margin-top: 16px;
+    text-align: left;
+    max-height: 0; /* Initially hidden */
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+  }
+  
+  .user-card.expanded .user-details {
+    max-height: 200px; /* Adjust based on content size */
+    opacity: 1;
+  }
+  
+  .user-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 16px;
+  }
+  
+  .edit-button,
+  .delete-button {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+  }
+  
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  

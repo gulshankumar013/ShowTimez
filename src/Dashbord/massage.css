@@ -1,0 +1,86 @@
+.message-container {
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .message-container h2{
+   
+    text-align: center;
+    color: #9898a8;
+  }
+  
+  .message-card {
+    width: 100%;
+    max-width: 100%; /* Adjust as needed */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .message-title {
+    font-family: "poppins";
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .message-icon {
+    font-size: 24px;
+  }
+  
+  .message-toggle-button {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .message-toggle-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .message-body {
+    font-family: "poppins";
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .message-body.expanded {
+    max-height: 500px; /* Adjust based on expected content height */
+  }
+  
+  .message-body p {
+    margin: 0;
+    margin-bottom: 8px;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  

@@ -17,7 +17,7 @@ const AdminLayout = () => {
     <div className={`admin-layout ${collapsed ? 'collapsed' : ''}`}>
       <Sidebar collapsed={collapsed} toggleSidebar={toggleSidebar} />
       <div className={`main-content ${collapsed ? 'collapsed' : ''}`}>
-        <DashbordHeader />
+        <DashbordHeader collapsed ={collapsed} />
         <div className="greeting-container">
           <Greeting />
         </div>

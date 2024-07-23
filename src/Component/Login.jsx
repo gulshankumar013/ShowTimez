@@ -7,18 +7,17 @@ import "../css/login.css";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-
   const [popupMessage, setPopupMessage] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,30 +34,45 @@ const Login = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5164/signin', payload);
-      if (response.data.rData.rMessage === "Signin Successful") {
-        try {
-          const response2 = await axios.post("http://localhost:5164/fetchUser", {
-            eventID: "1001",
-            addInfo: {
-              email: formData.email
-            }
-          });
-
-          sessionStorage.setItem("userData", JSON.stringify(response2.data.rData));
-        } catch (error) {
-          console.error(error.message);
-        }
-
+      // First, try the admin sign-in API
+      const adminResponse = await axios.post('http://localhost:5164/adminSignin', payload);
+      if (adminResponse.data.rData.rMessage === "Login Successfully, Welcome!") {
+        // Admin credentials are correct
+        sessionStorage.setItem("adminToken", adminResponse.data.rData.token); // Store the admin token if needed
+        navigate("/admin");
         setPopupMessage('Login Successful');
         setShowPopup(true);
-
         setTimeout(() => {
-          navigate("/");
-        }, 3000); // Redirect after 3 seconds
+          setShowPopup(false);
+        }, 3000); // Close popup after 3 seconds
       } else {
-        setPopupMessage('Invalid email or password');
-        setShowPopup(true);
+        // Not admin, try regular user sign-in
+        const userResponse = await axios.post('http://localhost:5164/signin', payload);
+        if (userResponse.data.rData.rMessage === "Signin Successful") {
+          try {
+            const response2 = await axios.post("http://localhost:5164/fetchUser", {
+              eventID: "1001",
+              addInfo: {
+                email: formData.email
+              }
+            });
+
+            sessionStorage.setItem("userData", JSON.stringify(response2.data.rData));
+            navigate("/");
+            setPopupMessage('Login Successful');
+            setShowPopup(true);
+            setTimeout(() => {
+              setShowPopup(false);
+            }, 3000); // Close popup after 3 seconds
+          } catch (error) {
+            console.error(error.message);
+            setPopupMessage('Error fetching user data.');
+            setShowPopup(true);
+          }
+        } else {
+          setPopupMessage('Invalid email or password');
+          setShowPopup(true);
+        }
       }
     } catch (error) {
       console.error('Error logging in:', error);
@@ -130,7 +144,7 @@ const Login = () => {
               <>
                 <img src="success.png" alt="Success Icon" />
                 <h2>Success!</h2>
-                <p>Login Successful</p>
+                <p>{popupMessage}</p>
               </>
             ) : (
               <>
@@ -150,4 +164,3 @@ const Login = () => {
 };
 
 export default Login;
-

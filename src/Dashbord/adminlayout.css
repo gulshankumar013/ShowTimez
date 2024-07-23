@@ -1,125 +1,62 @@
-/* src/Dashbord/adminlayout.css */
-
+/* Ensure the layout of the admin panel */
 .admin-layout {
   display: flex;
 }
 
 .admin-layout .main-content {
   background-color: #F3F3F9;
-  height: 100vh;
   flex: 1;
   margin-left: 250px; /* Space for expanded sidebar */
   transition: margin-left 0.3s ease; /* Animate margin shift */
+  padding-top: 90px; /* Adjust padding for fixed header */
 }
 
 .admin-layout.collapsed .main-content {
   margin-left: 80px; /* Space for collapsed sidebar */
 }
 
-.dashbord-sidebar {
-  width: 250px;
-  height: 100vh;
-  background-color: #405189;
-  color: #fff;
+.dashboard-nav {
   position: fixed;
   top: 0;
-  left: 0;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-  transition: width 0.3s ease; /* Animate width transition */
-}
-
-.dashbord-sidebar.collapsed {
-  width: 80px; /* Width when collapsed */
-}
-
-.sidebar-header {
+  left: 250px; /* Adjust based on expanded sidebar */
+  width: calc(100% - 250px); /* Adjust width based on expanded sidebar */
+  padding: 1%;
+  height: 60px; /* Adjust height as needed */
+  background: white;
+  color: #b8b6b6;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  position: relative;
-}
-
-.sidebar-title {
-  margin-bottom: 20px;
-  font-size: 1.5em;
-  transition: opacity 0.3s ease;
-}
-
-.sidebar-title.hidden {
-  opacity: 0;
-}
-
-.toggle-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.5em;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  position: absolute;
-  right: 10px; /* Adjust position for better visibility */
-  top: 20px; /* Align with the top of the sidebar header */
-}
-
-.toggle-btn:hover {
-  color: #ddd;
-}
-
-.dashbord-sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.dashbord-sidebar ul li {
-  margin-bottom: 20px; /* Increased margin for spacing */
-}
-
-.dashbord-sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1em;
-  display: flex;
   align-items: center;
-  padding: 10px; /* Padding inside each link */
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for distinction */
+  border-bottom: 3px solid #405189; /* Bottom border for highlight */
+  transition: left 0.3s ease, width 0.3s ease; /* Animate position and width */
 }
 
-.dashbord-sidebar ul li a:hover {
-  background-color: #575757;
+.dashboard-nav.collapsed {
+  left: 80px; /* Adjust based on collapsed sidebar */
+  width: calc(100% - 80px); /* Adjust width based on collapsed sidebar */
 }
 
-.dashbord-sidebar ul li a svg {
-  margin-right: 15px; /* Increased margin between icon and text */
-  font-size: 1.5em; /* Larger icon size */
+.dashboard-nav-title {
+  flex: 2;
+  text-align: center;
 }
 
-.sidebar-link {
-  transition: opacity 0.3s ease;
+.dashboard-nav-profile {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.sidebar-link.hidden {
-  display: none;
+.dashboard-nav-icon {
+  color:#9898a8;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 20px;
 }
 
-.sidebar-icon {
-  font-size: 1.5em; /* Default icon size */
-  transition: font-size 0.3s ease;
-}
-
-.dashbord-sidebar.collapsed .sidebar-icon {
-  font-size: 2em; /* Larger icon size when collapsed */
-}
-
-/* Content area adjustments */
-.content-area {
-  margin-left: 250px; /* Space for expanded sidebar */
-  transition: margin-left 0.3s ease; /* Animate content shift */
-}
-
-.dashbord-sidebar.collapsed ~ .content-area {
-  margin-left: 80px; /* Space for collapsed sidebar */
+.dashboard-nav-icon:hover {
+  color: #ddd;
 }

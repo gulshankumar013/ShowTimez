@@ -1,10 +1,8 @@
-/* src/Dashbord/dashbordHeader.css */
-
-.dashboard-nav {
+.dashbord-navbar {
   padding: 1%;
   margin-right: 20%;
   height: 10%;
-  width: 100%;
+  width: calc(100% - 250px); /* Adjust width considering the sidebar */
   background: white;
   color: #b8b6b6;
   display: flex;
@@ -13,35 +11,48 @@
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for distinction */
   border-bottom: 3px solid #405189; /* Bottom border for highlight */
+  position: fixed;
+  top: 0;
+  transition: width 0.3s ease; /* Animate width adjustment */
 }
 
-.dashboard-nav-logo {
+.dashbord-navbar.collapsed {
+  width: calc(100% - 80px); /* Adjust width for collapsed sidebar */
+}
+
+.dashbord-navbar-logo {
   flex: 1;
 }
 
-.dashboard-logo {
+.dashbord-logo {
   height: 40px;
 }
 
-.dashboard-nav-title {
+.dashbord-navbar-title {
+  font-family: "poppins";
   flex: 2;
   text-align: center;
+  margin-left: 15%;
 }
 
-.dashboard-nav-profile {
+.dashbord-navbar-title h1 {
+  font-weight: 400;
+}
+
+.dashbord-navbar-profile {
   flex: 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.dashboard-nav-icon {
-  color:#9898a8;
+.dashbord-navbar-icon {
+  color: #9898a8;
   text-decoration: none;
   margin-left: 15px;
   font-size: 20px;
 }
 
-.dashboard-nav-icon:hover {
+.dashbord-navbar-icon:hover {
   color: #ddd;
 }

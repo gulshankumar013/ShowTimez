@@ -4,7 +4,7 @@ import { BsFillPersonFill, BsFillBellFill, BsFillGearFill, BsFillSunFill, BsFill
 import ProfilePanel from './ProfilePanel'; // Import the ProfilePanel component
 import './dashbordHeader.css';
 
-const DashbordHeader = () => {
+const DashbordHeader = ({ collapsed }) => {
   const [isProfileOpen, setProfileOpen] = useState(false);
   const [isDarkMode, setDarkMode] = useState(false);
 
@@ -18,18 +18,18 @@ const DashbordHeader = () => {
   };
 
   return (
-    <div className={`dashboard-nav ${isDarkMode ? 'dark-mode' : ''}`}>
-      <div className="dashboard-nav-title">
+    <div className={`dashbord-navbar ${collapsed ? 'collapsed' : ''} ${isDarkMode ? 'dark-mode' : ''}`}>
+      <div className="dashbord-navbar-title">
         <h1>Admin Dashboard</h1>
       </div>
-      <div className="dashboard-nav-profile">
-        <Link to="/admin/notifications" className="dashboard-nav-icon">
+      <div className="dashbord-navbar-profile">
+        <Link to="/admin/notifications" className="dashbord-navbar-icon">
           <BsFillBellFill />
         </Link>
-        <Link to="#" className="dashboard-nav-icon" onClick={toggleProfilePanel}>
+        <Link to="#" className="dashbord-navbar-icon" onClick={toggleProfilePanel}>
           <BsFillPersonFill /> Profile
         </Link>
-        <Link to="#" className="dashboard-nav-icon" onClick={toggleDarkMode}>
+        <Link to="#" className="dashbord-navbar-icon" onClick={toggleDarkMode}>
           {isDarkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
         </Link>
       </div>

@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import MyBooking from "./MyBookings";
 import MyBookings from "./MyBookings";
+import { FaUpload } from "react-icons/fa";
 
 const UPDATE_API = "http://localhost:5164/update";
 
@@ -274,15 +275,20 @@ const Profile = () => {
       <div className="profile-page">
         <div className="profile-header">
           <div className="profile-header-left">
+            
             <div className="profile-avatar" style={{ backgroundImage: previewImage ? `url(${previewImage})` : 'url("defaultprofile.jpg")' }}>
               <input type="file" accept="image/*" onChange={handleImageChange} />
             </div>
+            
             <div className="profile-info">
               <h1>{userData.name}</h1>
               <p>{userData.email}</p>
               <p>{userData.mobile}</p>
             </div>
+            <div onClick={handleProfileImage} className="profile-upload-image" ><FaUpload size={"20px"}/></div>
+         
           </div>
+          
           
         </div>
         <div className="profile-content">

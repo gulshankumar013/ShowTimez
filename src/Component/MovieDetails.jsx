@@ -24,6 +24,7 @@ const MovieDetails = () => {
       eventID: "1001",
       addInfo: {
         id: item.id, // Use item.id here
+        name:"",
       },
     };
     try {

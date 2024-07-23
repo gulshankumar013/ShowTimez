@@ -17,6 +17,9 @@ import Dashbordhome from './Dashbord/Dashbordhome';
 import AdminLayout from './Dashbord/AdminLayout';
 import ManageUsers from './Dashbord/ManageUsers';
 import ProfilePanel from './Dashbord/ProfilePanel';
+import Massage from './Dashbord/Massage';
+
+
 
 
 
@@ -80,7 +83,12 @@ const App = () => {
         {
           path: "/admin/manageusers",
           element: <ManageUsers/>
+        },
+        {
+          path:"/admin/messgae",
+          element:<Massage/>
         }
+       
       ]
     },
     {
