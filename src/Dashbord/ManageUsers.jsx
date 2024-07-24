@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import '../Dashbord/manageUsers.css'; // Import CSS file for styling
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ManageUsers = () => {
   const [expandedUserId, setExpandedUserId] = useState(null);
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
+  const token = sessionStorage.getItem('adminToken');
+  useEffect(() => {
+    if (!token) {
+      console.log('No token found');
+      navigate('/login');
+    }
+  }, [token, navigate]);
+
 
   useEffect(() => {
     fetchUsers();

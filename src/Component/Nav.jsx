@@ -102,7 +102,7 @@ const Nav = () => {
       <div className={`nav-links ${isOpen ? 'nav-links-open' : ''}`}>
         <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
         <Link to="/movie" onClick={() => setIsOpen(false)}>Movie</Link>
-        <Link to="/event" onClick={() => setIsOpen(false)}>Event</Link>
+        <Link to="/aboutus" onClick={() => setIsOpen(false)}>About us</Link>
         <Link to="/contactus" onClick={() => setIsOpen(false)}>Contact Us</Link>
       </div>
       <div className="nav-icons">

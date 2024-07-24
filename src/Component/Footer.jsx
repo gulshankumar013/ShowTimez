@@ -1,15 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../css/footer.css';
 
 const Footer = () => {
+    const navigate = useNavigate();
+
     return (
-        <>
         <div className="footer">
             <div className="footer-content">
                 <div className="footer-left">
                     <h2 className="footer-logo">ShowTimez</h2>
                     <p>Buy movie tickets easily with Aovis system nationwide</p>
-                    <button className="get-ticket-btn">Get Your Ticket</button>
+                    <button className="get-ticket-btn" onClick={() => navigate("/profile")}>
+                        Get Your Ticket
+                    </button>
                 </div>
                 <div className="footer-sections">
                     <div className="footer-section">
@@ -51,14 +55,11 @@ const Footer = () => {
                     <i className="fab fa-pinterest"></i>
                     <i className="fab fa-instagram"></i>
                 </div>
-                
             </div>
-                 <div className='footer-bottom-copy'>
-                     <p>© Copyright 2023 by ShowTimez.com</p>
-                </div>
-               
+            <div className='footer-bottom-copy'>
+                <p>© Copyright 2023 by ShowTimez.com</p>
+            </div>
         </div>
-        </>
     );
 };
 

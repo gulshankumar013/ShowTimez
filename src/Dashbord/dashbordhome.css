@@ -1,9 +1,7 @@
-
 /* src/index.css or App.css */
 
-
 .dashboard-home {
-  margin-top: 10%;
+ 
   padding: 20px;
   background-color: #f0f2f5;
   min-height: 100vh;
@@ -12,6 +10,41 @@
 .dashboard-home h2 {
   text-align: center;
   margin-bottom: 20px;
+  color: #9898a8;
+}
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.total-users-card, .total-movies-card,.total-upcoming-movies-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 300px;
+  margin: 0 auto 20px auto;
+}
+
+.total-users-card .card-content, .total-movies-card .card-content,.total-upcoming-movies-card .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.total-users-card h3, .total-movies-card h3,.total-upcoming-movies-card h3 {
+  color: #555;
+  font-family: "poppins";
+  margin-bottom: 10px;
+}
+
+.total-users-card p,.total-movies-card p, .total-upcoming-movies-card p  {
+  font-family: "poppins";
+  font-size: 24px;
   color: #333;
 }
 
@@ -30,7 +63,6 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
- 
 }
 
 .chart-container h3 {
@@ -38,7 +70,6 @@
   margin-bottom: 20px;
   color: #555;
 }
-
 
 @media (max-width: 768px) {
   .chart-container {

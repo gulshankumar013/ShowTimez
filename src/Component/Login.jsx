@@ -39,12 +39,12 @@ const Login = () => {
       if (adminResponse.data.rData.rMessage === "Login Successfully, Welcome!") {
         // Admin credentials are correct
         sessionStorage.setItem("adminToken", adminResponse.data.rData.token); // Store the admin token if needed
-        navigate("/admin");
         setPopupMessage('Login Successful');
         setShowPopup(true);
         setTimeout(() => {
           setShowPopup(false);
-        }, 3000); // Close popup after 3 seconds
+          navigate("/admin");
+        }, 3000); // Show popup for 3 seconds before navigating
       } else {
         // Not admin, try regular user sign-in
         const userResponse = await axios.post('http://localhost:5164/signin', payload);
@@ -58,12 +58,12 @@ const Login = () => {
             });
 
             sessionStorage.setItem("userData", JSON.stringify(response2.data.rData));
-            navigate("/");
             setPopupMessage('Login Successful');
             setShowPopup(true);
             setTimeout(() => {
               setShowPopup(false);
-            }, 3000); // Close popup after 3 seconds
+              navigate("/");
+            }, 3000); // Show popup for 3 seconds before navigating
           } catch (error) {
             console.error(error.message);
             setPopupMessage('Error fetching user data.');

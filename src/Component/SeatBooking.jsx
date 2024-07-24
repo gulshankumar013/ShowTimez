@@ -11,7 +11,7 @@ const SeatBooking = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
-  const { image, name, description, showTime, theaterName } = location.state;
+  const { image, name, discription, showTime, theaterName } = location.state;
   const userdata = sessionStorage.getItem('userData');
 
 
@@ -154,33 +154,14 @@ const SeatBooking = () => {
       currency: 'INR',
       name: 'Movie Ticket Booking',
       description: 'Payment for movie tickets',
-      handler: async function (response) {
+      handler:  function (response) {
         console.log(response);
         alert('Payment Successful');
-
-        const payload = {
-          eventid: "1001",
-          addInfo: {
-            name: name,
-            image: image,
-            selectedSeats:selectedSeats,
-            description: description,
-            showTime: showTime,
-            theaterName: theaterName,
-            totalAmount: totalAmount,
-            user_id: userId,
-          }
-        };
-        console.log(payload, 'payload')
-
-        try {
-          const bookingResponse = await axios.post("http://localhost:5164/booking", payload);
-          console.log(bookingResponse, " booking api response")
-          alert('Booking details stored successfully');
-        } catch (error) {
-          console.error('Error storing booking details:', error);
-          alert('Failed to store booking details');
-        }
+      let check=  window.confirm("do you want continue ")
+      if(check){
+        handleSubmit();
+      }
+      console.log("calling",check)
       },
       prefill: {
         name: 'Customer Name',
@@ -195,6 +176,60 @@ const SeatBooking = () => {
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   };
+
+
+  const handleSubmit = async () => {
+      const payload = {
+        eventid: "1001",
+        addInfo: {
+          name: name,
+          image: image,
+          discription: discription,
+          showTime: showTime,
+          theaterName: theaterName,
+          totalAmount: totalAmount,
+          user_id: userId,
+        }
+      };
+      // console.log(payload, 'payload')
+      try {
+        const bookingResponse = await axios.post("http://localhost:5164/booking", payload);
+        // console.log(bookingResponse.config.data, " booking api response")
+        const { eventid, addInfo } = JSON.parse(bookingResponse.config.data);
+        const { name, image, discription, showTime, theaterName, totalAmount, user_id } = addInfo;
+      // let {store}=bookingResponse.config.data
+      // console.log("image",image)
+        // alert('Booking details stored successfully');
+
+        const payload2 = {
+          eventid: "1001",
+          addInfo: {
+            name: name,
+            image: image,
+            discription: discription,
+            showTime: showTime,
+            theaterName: theaterName,
+            totalAmount: totalAmount,
+            user_id: userId,
+          }
+        };
+        // console.log(payload, 'payload')
+        try {
+          const bookingResponse = await axios.post("http://localhost:5164/booking", payload2);
+          console.log(" booking api response",bookingResponse.config.data)
+          alert('Booking successfully');
+        } catch (error) {
+          alert('Failed to store booking details',error);
+        }
+        
+
+
+
+      } catch (error) {
+        console.error('Error storing booking details:', error);
+        alert('Failed to store booking details');
+      }
+  }
 
   return (
     <>
@@ -233,7 +268,7 @@ const SeatBooking = () => {
             </div>
             <div className="booking-details">
               {name && <h2 className="movie-name">Movie - {name}</h2>}
-              {description && <p className="show-time">{description}</p>}
+              {discription && <p className="show-time">{discription}</p>}
               {showTime && <p className="show-time">Show Time - {showTime}</p>}
               {theaterName && <p className="show-time">At - {theaterName}</p>}
               <p className="cinema-location"></p>

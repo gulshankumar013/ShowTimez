@@ -1,246 +1,73 @@
-
 .product-page {
   margin-top: 5%;
   padding: 20px;
 }
 
-.top-buttons {
-  display: flex;
-  justify-content: space-around;
+.page-title {
+  text-align: center;
   margin-bottom: 20px;
-}
-
-.top-buttons button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .product-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 20px;
 }
 
-.product-form input,
-.product-form textarea,
-.product-form button {
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-pair {
+  display: flex;
+  gap: 20px;
+}
+
+.input-field,
+.file-input {
+  width: 100%;
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-.product-form button {
+.description-field {
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+
+.cast-crew-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cast-crew-pair {
+  display: flex;
+  gap: 10px;
+}
+
+.submit-button {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
   background-color: #28a745;
   color: white;
-  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
   border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
-.product-form button:hover {
+.submit-button:hover {
   background-color: #218838;
 }
-
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.product-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  width: calc(33.333% - 20px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.product-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 15px;
-}
-
-.product-card h3 {
-  margin: 10px 0;
-}
-
-.product-card p {
-  margin: 5px 0;
-}
-
-.product-actions {
-  margin-top: 15px;
-  display: flex;
-  gap: 10px;
-}
-
-.product-actions button {
-  display: flex;
-  align-items: center;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.product-actions button svg {
-  margin-right: 5px;
-}
-
-.product-actions button:first-child {
-  background-color: #dc3545;
-  color: white;
-}
-
-.product-actions button:last-child {
-  background-color: #ffc107;
-  color: black;
-}
-
-.form-container-a {
-    height: 100%;
-    padding: 2% 0 0 20%;
-  }
-  
-  .table-container h3 {
-    font-size: xx-large;
-    padding-bottom: 5%;
-    color: black;
-   
-  }
-  
-  .form-heading {
-    margin-left: -18% !important;
-  }
-  
-  .form-table {
-    color: black;
-    height: auto;
-    border-spacing: 0 10px; /* Add vertical space between rows */
-    width: 100%;
-    margin-left: -15%;
-  }
-  
-  .form-tab {
-    margin-left: -18% !important;
-  }
-  
-  .form-table th {
-    padding: 15px;
-    text-align: left;
-    background-color: #ffffff; /* Background color for header */
-  }
-  
-  .form-table td {
-    padding: 15px;
-    text-align: left;
-    background-color: #ffffff; /* Background color for table cells */
-  }
-  
-  .form-table tr {
-    background-color: #ffffff; /* Background color for table rows */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effect */
-    overflow: hidden; /* Ensure border radius is applied properly */
-    position: relative; /* Required for the pseudo-elements to work */
-  }
-  
-  .form-table tr::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 8px; /* Apply border radius */
-    background-color: inherit; /* Ensure background color is inherited */
-    z-index: -1; /* Ensure the pseudo-element is behind the content */
-  }
-  
-  .form-table tr:nth-child(even) {
-    background-color: #f8f8f8; /* Slightly darker background for even rows */
-  }
-  
-  .form-table tr:hover {
-    transform: scale(1.02); /* Slight zoom-in on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-  }
-  
-  .form-table button {
-    margin-right: 5px;
-    display: inline-block; /* Ensures buttons appear on the same line */
-    padding: 8px 12px; /* Adjust padding as needed */
-    background-color: #978f8f; /* Button background color */
-    color: white; /* Button text color */
-    border: none; /* No border */
-    border-radius: 4px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor */
-  }
-  
-  .form-table button:hover {
-    background-color: #000000; /* Darker color on hover */
-  }
-  
-  .form-table button:last-child {
-    margin-right: 0; /* No right margin for the last button */
-  }
-  
-  .edit-form {
-    margin-right: 36%;
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  .edit-form h3 {
-    margin-bottom: 20px;
-  }
-  
-  .edit-form form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .edit-form form div {
-    margin-bottom: 10px;
-  }
-  
-  .edit-form form label {
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .edit-form form input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .edit-form form button {
-    margin-right: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #1976d2;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .edit-form form button:last-child {
-    background-color: #ccc;
-  }
-  

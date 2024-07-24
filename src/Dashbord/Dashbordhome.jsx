@@ -1,8 +1,77 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ResponsiveContainer, BarChart, Bar, CartesianGrid, XAxis, YAxis, Tooltip, Legend, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
 import "../Dashbord/dashbordhome.css";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Dashbordhome = () => {
+  const [totalUsers, setTotalUsers] = useState(0);
+  const [totalMovies, setTotalMovies] = useState(0);
+  const [totalUpcomingMovies, setTotalUpcomingMovies] = useState(0);
+  const navigate = useNavigate();
+  const token = sessionStorage.getItem('adminToken');
+
+  useEffect(() => {
+    if (!token) {
+      console.log('No token found');
+      navigate('/login');
+    }
+  }, [token, navigate]);
+
+  useEffect(() => {
+    fetchTotalUsers();
+    fetchTotalMovies();
+    fetchTotalUpcomingMovies();
+  }, []);
+
+  const fetchTotalUsers = async () => {
+    try {
+      const response = await axios.post("http://localhost:5164/totaluser", { eventID: "1001" });
+      if (response.status === 200) {
+        const responseData = response.data;
+        if (responseData.rData && responseData.rData.total_users) {
+          setTotalUsers(responseData.rData.total_users);
+        } else {
+          console.log("No users data in response");
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
+
+  const fetchTotalMovies = async () => {
+    try {
+      const response = await axios.post("http://localhost:5164/totalmovieplaying", { eventID: "1001" });
+      if (response.status === 200) {
+        const responseData = response.data;
+        if (responseData.rData && responseData.rData.total_movie_playing) {
+          setTotalMovies(responseData.rData.total_movie_playing);
+        } else {
+          console.log("No movies data in response");
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
+  };
+
+  const fetchTotalUpcomingMovies = async () => {
+    try {
+      const response = await axios.post("http://localhost:5164/totalcommingplaying", { eventID: "1001" });
+      if (response.status === 200) {
+        const responseData = response.data;
+        if (responseData.rData && responseData.rData.total_coming_movie) {
+          setTotalUpcomingMovies(responseData.rData.total_coming_movie);
+        } else {
+          console.log("No upcoming movies data in response");
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching upcoming movies:", error);
+    }
+  };
+
   const data = [
     { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
     { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
@@ -25,6 +94,26 @@ const Dashbordhome = () => {
   return (
     <div className="dashboard-home">
       <h2>Dashboard</h2>
+      <div className="cards">
+        <div className="total-users-card">
+          <div className="card-content">
+            <h3>Total Users</h3>
+            <p>{totalUsers}</p>
+          </div>
+        </div>
+        <div className="total-movies-card">
+          <div className="card-content">
+            <h3>Total Movies Playing Now</h3>
+            <p>{totalMovies}</p>
+          </div>
+        </div>
+        <div className="total-upcoming-movies-card">
+          <div className="card-content">
+            <h3>Total Upcoming Movies</h3>
+            <p>{totalUpcomingMovies}</p>
+          </div>
+        </div>
+      </div>
       <div className="charts">
         <div className="chart-container">
           <h3>Bar Chart</h3>

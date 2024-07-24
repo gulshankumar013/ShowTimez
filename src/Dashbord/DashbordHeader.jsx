@@ -29,9 +29,7 @@ const DashbordHeader = ({ collapsed }) => {
         <Link to="#" className="dashbord-navbar-icon" onClick={toggleProfilePanel}>
           <BsFillPersonFill /> Profile
         </Link>
-        <Link to="#" className="dashbord-navbar-icon" onClick={toggleDarkMode}>
-          {isDarkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
-        </Link>
+        
       </div>
       <ProfilePanel isOpen={isProfileOpen} onClose={toggleProfilePanel} />
     </div>

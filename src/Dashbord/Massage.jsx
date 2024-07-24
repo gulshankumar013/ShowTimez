@@ -2,11 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { FaRegEnvelope } from 'react-icons/fa'; // Message icon
 import axios from 'axios';
 import '../Dashbord/massage.css'; // Import the CSS file for styling
+import { useNavigate } from 'react-router-dom';
 
 const Massage = () => {
   const [expandedMessageId, setExpandedMessageId] = useState(null);
   const [users, setUsers] = useState([]);
-  console.log("users",users)
+  // console.log("users",users)
+  const navigate = useNavigate();
+  const token = sessionStorage.getItem('adminToken');
+  useEffect(() => {
+    if (!token) {
+      console.log('No token found');
+      navigate('/login');
+    }
+  }, [token, navigate]);
+
 
   useEffect(() => {
     fetchUsers();

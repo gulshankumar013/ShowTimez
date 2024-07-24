@@ -18,6 +18,7 @@ import AdminLayout from './Dashbord/AdminLayout';
 import ManageUsers from './Dashbord/ManageUsers';
 import ProfilePanel from './Dashbord/ProfilePanel';
 import Massage from './Dashbord/Massage';
+import AboutUs from './Component/AboutUs';
 
 
 
@@ -64,6 +65,10 @@ const App = () => {
         {
           path:"/mybooking",
           element:<MyBookings/>
+        },
+        {
+          path:"/aboutus",
+          element:<AboutUs/>
         }
               
       ]

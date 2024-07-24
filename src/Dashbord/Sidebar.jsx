@@ -54,7 +54,7 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
           </Link>
         </li>
         <li>
-          <Link to="/admin/message">
+          <Link to="/admin/messgae">
             <FaMessage className={`sidebar-icon ${collapsed ? 'large-icon' : ''}`} />
             <span className={`sidebar-link ${collapsed ? 'hidden' : ''}`}>Message</span>
           </Link>
