@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import MyBooking from "./MyBookings";
 import MyBookings from "./MyBookings";
 import { FaUpload } from "react-icons/fa";
 

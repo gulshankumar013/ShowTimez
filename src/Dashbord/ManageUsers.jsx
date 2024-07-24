@@ -40,7 +40,7 @@ const ManageUsers = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.post("http://localhost:5164/deleteUser", {
+      const response = await axios.post("http://localhost:5164/delete", {
         eventID: "1001",
         addInfo: {
           id: id

@@ -19,6 +19,7 @@ import ManageUsers from './Dashbord/ManageUsers';
 import ProfilePanel from './Dashbord/ProfilePanel';
 import Massage from './Dashbord/Massage';
 import AboutUs from './Component/AboutUs';
+import Movieplaying from './Dashbord/Movieplaying';
 
 
 
@@ -92,6 +93,10 @@ const App = () => {
         {
           path:"/admin/messgae",
           element:<Massage/>
+        },
+        {
+          path:"/admin/movieplaying",
+          element:<Movieplaying/>
         }
        
       ]

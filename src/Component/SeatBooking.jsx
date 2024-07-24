@@ -11,15 +11,14 @@ const SeatBooking = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
-  const { image, name, discription, showTime, theaterName } = location.state;
+  const { image, name, discription, showTime, theaterName, movie_time } = location.state;
   const userdata = sessionStorage.getItem('userData');
 
-
-  // this is provide authentication without login user cannot book ticket
+  // This is to provide authentication without login user cannot book ticket
   const [userData, setUserData] = React.useState({
-    email:"",
-    mobile:"",
-    name:""
+    email: "",
+    mobile: "",
+    name: ""
   });
 
   useEffect(() => {
@@ -30,7 +29,6 @@ const SeatBooking = () => {
     } else {
       const userData = JSON.parse(userDataString);
       setUserData(userData);
-      
     }
   }, []);
 
@@ -145,6 +143,7 @@ const SeatBooking = () => {
       </div>
     ));
   };
+  console.log("selectedSeats", selectedSeats);
 
   const handleProceedToPay = async () => {
     const options = {
@@ -154,14 +153,10 @@ const SeatBooking = () => {
       currency: 'INR',
       name: 'Movie Ticket Booking',
       description: 'Payment for movie tickets',
-      handler:  function (response) {
+      handler: function (response) {
         console.log(response);
         alert('Payment Successful');
-      let check=  window.confirm("do you want continue ")
-      if(check){
-        handleSubmit();
-      }
-      console.log("calling",check)
+        bookTicket();
       },
       prefill: {
         name: 'Customer Name',
@@ -177,60 +172,22 @@ const SeatBooking = () => {
     paymentObject.open();
   };
 
+  const bookTicket = () => {
+    const clonedSelectedSeats = JSON.parse(JSON.stringify(selectedSeats));
+    const stateData = {
+      image: image,
+      name: name,
+      movie_time: movie_time,
+      discription: discription,
+      showTime: showTime,
+      theaterName: theaterName,
+      selectedSeats: clonedSelectedSeats,
+      totalAmount: totalAmount,
+      userId: userId
+    };
 
-  const handleSubmit = async () => {
-      const payload = {
-        eventid: "1001",
-        addInfo: {
-          name: name,
-          image: image,
-          discription: discription,
-          showTime: showTime,
-          theaterName: theaterName,
-          totalAmount: totalAmount,
-          user_id: userId,
-        }
-      };
-      // console.log(payload, 'payload')
-      try {
-        const bookingResponse = await axios.post("http://localhost:5164/booking", payload);
-        // console.log(bookingResponse.config.data, " booking api response")
-        const { eventid, addInfo } = JSON.parse(bookingResponse.config.data);
-        const { name, image, discription, showTime, theaterName, totalAmount, user_id } = addInfo;
-      // let {store}=bookingResponse.config.data
-      // console.log("image",image)
-        // alert('Booking details stored successfully');
-
-        const payload2 = {
-          eventid: "1001",
-          addInfo: {
-            name: name,
-            image: image,
-            discription: discription,
-            showTime: showTime,
-            theaterName: theaterName,
-            totalAmount: totalAmount,
-            user_id: userId,
-          }
-        };
-        // console.log(payload, 'payload')
-        try {
-          const bookingResponse = await axios.post("http://localhost:5164/booking", payload2);
-          console.log(" booking api response",bookingResponse.config.data)
-          alert('Booking successfully');
-        } catch (error) {
-          alert('Failed to store booking details',error);
-        }
-        
-
-
-
-      } catch (error) {
-        console.error('Error storing booking details:', error);
-        alert('Failed to store booking details');
-      }
-  }
-
+    navigate("/mybooking", { state: stateData });
+  };
   return (
     <>
       {showPopup && (
@@ -257,6 +214,7 @@ const SeatBooking = () => {
         </div>
       )}
       <div className="seat-layout">
+       
         <div className="movie-booking-heading">
           <p>Booking summary</p>
         </div>

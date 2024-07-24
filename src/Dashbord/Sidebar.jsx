@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BsFillArchiveFill, BsFillBellFill, BsFillGrid3X3GapFill, BsPeopleFill, BsChevronRight, BsChevronLeft, BsBoxArrowRight } from 'react-icons/bs';
+import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsChevronRight, BsChevronLeft, BsBoxArrowRight } from 'react-icons/bs';
 import { FaMessage } from 'react-icons/fa6';
 import "../Dashbord/sidebar.css";
+import { BiSolidCameraMovie } from 'react-icons/bi';
 
 const Sidebar = ({ collapsed, toggleSidebar }) => {
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -12,7 +13,6 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
     sessionStorage.removeItem("userData");
     sessionStorage.removeItem("adminToken");
     setShowLogoutPopup(false);
-    // Assuming you have a way to navigate to logout or home
     window.location.href = "/"; 
   };
 
@@ -48,9 +48,9 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
           </Link>
         </li>
         <li>
-          <Link to="/admin/alerts">
-            <BsFillBellFill className={`sidebar-icon ${collapsed ? 'large-icon' : ''}`} />
-            <span className={`sidebar-link ${collapsed ? 'hidden' : ''}`}>Alerts</span>
+          <Link to="/admin/movieplaying">
+          <BiSolidCameraMovie className={`sidebar-icon ${collapsed ? 'large-icon' : ''}`} />
+            <span className={`sidebar-link ${collapsed ? 'hidden' : ''}`}>Movie playing</span>
           </Link>
         </li>
         <li>
