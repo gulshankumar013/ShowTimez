@@ -1,41 +1,41 @@
-/* Ensure the layout of the admin panel */
+
 .admin-layout {
   display: flex;
 }
 
 .admin-layout .main-content {
-  background-color: #F3F3F9;
+  background-color: white;
   flex: 1;
-  margin-left: 250px; /* Space for expanded sidebar */
-  transition: margin-left 0.3s ease; /* Animate margin shift */
-  padding-top: 90px; /* Adjust padding for fixed header */
+  margin-left: 250px; 
+  transition: margin-left 0.3s ease; 
+  padding-top: 90px; 
 }
 
 .admin-layout.collapsed .main-content {
-  margin-left: 80px; /* Space for collapsed sidebar */
+  margin-left: 80px; 
 }
 
 .dashboard-nav {
   position: fixed;
   top: 0;
-  left: 250px; /* Adjust based on expanded sidebar */
-  width: calc(100% - 250px); /* Adjust width based on expanded sidebar */
+  left: 250px; 
+  width: calc(100% - 250px); 
   padding: 1%;
-  height: 60px; /* Adjust height as needed */
+  height: 60px; 
   background: white;
   color: #b8b6b6;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for distinction */
-  border-bottom: 3px solid #405189; /* Bottom border for highlight */
-  transition: left 0.3s ease, width 0.3s ease; /* Animate position and width */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  border-bottom: 3px solid #405189; 
+  transition: left 0.3s ease, width 0.3s ease; 
 }
 
 .dashboard-nav.collapsed {
-  left: 80px; /* Adjust based on collapsed sidebar */
-  width: calc(100% - 80px); /* Adjust width based on collapsed sidebar */
+  left: 80px; 
+  width: calc(100% - 80px);
 }
 
 .dashboard-nav-title {

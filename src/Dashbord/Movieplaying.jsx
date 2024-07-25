@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../Dashbord/movieplaying.css'; // Import the CSS file for styling
-import { FaPlus } from 'react-icons/fa'; // Import icon
+import '../Dashbord/movieplaying.css'; 
+import { FaPlus } from 'react-icons/fa'; 
 
 const Movieplaying = () => {
   const [movies, setMovies] = useState([]);
@@ -16,7 +16,7 @@ const Movieplaying = () => {
   const moviePlay = async () => {
     try {
       const response = await axios.post("http://localhost:5164/fetchmoviePlaying", { eventID: "1001" });
-      console.log("API Response:", response.data); // Log the entire response
+      console.log("API Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData && responseData.rData.users) {
@@ -32,7 +32,7 @@ const Movieplaying = () => {
   };
 
   const handleCardClick = (id) => {
-    setExpandedCard(expandedCard === id ? null : id); // Toggle expansion
+    setExpandedCard(expandedCard === id ? null : id); 
   };
 
   const handleDelete = async (id) => {
@@ -44,7 +44,7 @@ const Movieplaying = () => {
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData.rMessage === "DELETE SUCCESSFULLY.") {
-          setMovies(movies.filter(movie => movie.id !== id)); // Remove movie from local state
+          setMovies(movies.filter(movie => movie.id !== id)); 
         }
       }
     } catch (error) {
@@ -54,11 +54,13 @@ const Movieplaying = () => {
 
   return (
     <>
+    
       <h2 className="movies-title">Movies Now Playing Details</h2>
-      <div className="movieplaying-container">
-        <button className="add-movie-button" onClick={() => navigate('/admin/addmovieplaying')}>
+      <button className="add-movie-button" onClick={() => navigate('/admin/addmovieplaying')}>
           <FaPlus /> Add Movie
         </button>
+      <div className="movieplaying-container">
+        
         {movies.map((movie) => (
           <div
             key={movie.id}

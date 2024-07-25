@@ -7,11 +7,11 @@ import axios from 'axios'; // Import axios for API requests
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false); // For city dropdown
-  const [selectedCity, setSelectedCity] = useState(''); // To store selected city
-  const [searchQuery, setSearchQuery] = useState(''); // To store search query
-  const [searchResults, setSearchResults] = useState([]); // To store search results
-  const navigate = useNavigate(); // To navigate programmatically
+  const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false); 
+  const [selectedCity, setSelectedCity] = useState(''); 
+  const [searchQuery, setSearchQuery] = useState(''); 
+  const [searchResults, setSearchResults] = useState([]); 
+  const navigate = useNavigate(); 
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -23,7 +23,7 @@ const Nav = () => {
 
   const closeSearch = () => {
     setIsSearchOpen(false);
-    setSearchResults([]); // Clear search results when search is closed
+    setSearchResults([]); 
   };
 
   const toggleCityDropdown = () => {
@@ -44,7 +44,7 @@ const Nav = () => {
     };
     try {
       const response = await axios.post("http://localhost:5164/fetchMoviePlayingById", payload);
-      console.log("API Response:", response.data); // Log the entire response
+      console.log("API Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData && responseData.rData.users) {
@@ -97,11 +97,12 @@ const Nav = () => {
   return (
     <div className="navbar">
       <div className="nav-logo">
-        <img src="logo.png" alt="Movie Logo" />
+        <Link to={"/"}><img src="logo.png" alt="Movie Logo" /></Link>
+        
       </div>
       <div className={`nav-links ${isOpen ? 'nav-links-open' : ''}`}>
         <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
-        <Link to="/movie" onClick={() => setIsOpen(false)}>Movie</Link>
+        {/* <Link to="/movie" onClick={() => setIsOpen(false)}>Movie</Link> */}
         <Link to="/aboutus" onClick={() => setIsOpen(false)}>About us</Link>
         <Link to="/contactus" onClick={() => setIsOpen(false)}>Contact Us</Link>
       </div>

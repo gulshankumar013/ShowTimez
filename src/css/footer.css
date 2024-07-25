@@ -89,6 +89,14 @@
     margin-bottom: 5px;
 }
 
+.footer-section a{
+ color: white;
+ text-decoration: none;
+}
+.footer-section a:hover{
+    color:#ff6600
+}
+
 .newsletter-subscribe {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;

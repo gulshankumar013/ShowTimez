@@ -1,10 +1,13 @@
 .movieplaying-container {
+  margin-left: 5%;
+  width: 80%;
+  height: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
     justify-content: center;
-    padding: 20px;
-    position: relative; /* Add this line to make sure the button is positioned relative to this container */
+    padding: 10px;
+    position: relative; 
   }
   
   .movies-title {
@@ -17,8 +20,8 @@
   
   .movie-card {
     position: relative;
-    width: 200px;
-    height: 300px;
+    width: 150px;
+    height: 250px;
     cursor: pointer;
     overflow: hidden;
     border-radius: 8px;
@@ -81,9 +84,9 @@
   }
   
   .add-movie-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+  margin-top: -3%;
+    margin-left: 2%;
+    margin-bottom: 5%;
     background-color: #3399cc;
     color: white;
     border: none;

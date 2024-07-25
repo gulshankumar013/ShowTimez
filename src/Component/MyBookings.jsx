@@ -1,82 +1,27 @@
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-// import '../css/mybooking.css';
 
-// const MyBookings = () => {
-//   const [bookings, setBookings] = useState([]);
-//   const userdata = sessionStorage.getItem('userData');
-//   let userId = null;
-
-//   useEffect(() => {
-//     const parsedUserData = JSON.parse(userdata);
-//     userId = parsedUserData.id;
-//     console.log("User ID:", userId);
-//     if (userId) {
-//       fetchBooking(userId);
-//     }
-//   }, []);
-
-//   const fetchBooking = async (userId) => {
-//     const payload = {
-//       eventID: "1001",
-//       addInfo: {
-//         user_id: userId,
-//       },
-//     };
-
-//     console.log("payload", payload);
-
-//     try {
-//       const response = await axios.post("http://localhost:5164/bookingbyid", payload);
-//       console.log("API Response:", response.data);
-//       if (response.status === 200) {
-//         const responseData = response.data;
-//         if (responseData.rData && responseData.rData.users) {
-//           setBookings(response.data.rData.users);
-//           console.log("Movies:", responseData.rData.users);
-//         } else {
-//           console.log("No movie data in response");
-//         }
-//       }
-//     } catch (error) {
-//       console.error("Error in fetching booking:", error);
-//     }
-//   };
-
-//   return (
-//     <div className="my-bookings-container">
-//       <h2>My Bookings</h2>
-//       {bookings.length === 0 ? (
-//         <p>No bookings available.</p>
-//       ) : (
-//         <ul>
-//           {bookings.map((booking) => (
-//             <li key={booking.id} className="booking-item">
-//               <img src={booking.image} alt="" />
-//               <div className="booking-details">
-//                 <p><strong>Movie:</strong> {booking.name}</p>
-//                 <p><strong>Date:</strong> {booking.date}</p>
-//                 <p><strong>Time:</strong> {booking.showTime}</p>
-//                 <p><strong>Theater:</strong> {booking.theaterName}</p>
-//                 <p><strong>Seats:</strong> {booking.selectedSeats}</p>
-//                 <p><strong>Total price:</strong> {booking.totalAmount}</p>
-//               </div>
-//             </li>
-//           ))}
-//         </ul>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default MyBookings;
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import jsPDF from 'jspdf';
+import JsBarcode from 'jsbarcode';
 import '../css/mybooking.css';
 
 const MyBooking = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const barcodeRef = useRef(null);
+  const [barcodeNumber, setBarcodeNumber] = useState('');
+
+  useEffect(() => {
+    if (!location.state) {
+      return;
+    }
+    // Generate a random barcode number
+    const generatedBarcodeNumber = Math.floor(100000000000 + Math.random() * 900000000000).toString();
+    // Generate the barcode
+    JsBarcode(barcodeRef.current, generatedBarcodeNumber, { format: 'CODE128' });
+    // Save the barcode number
+    setBarcodeNumber(generatedBarcodeNumber);
+  }, [location.state]);
 
   if (!location.state) {
     return (
@@ -87,7 +32,7 @@ const MyBooking = () => {
     );
   }
 
-  const { image, name, movie_time, discription, showTime, theaterName, selectedSeats, totalAmount } = location.state;
+  const { image, name, discription, showTime, theaterName, selectedSeats, totalAmount } = location.state;
 
   const renderSelectedSeats = () => {
     const selectedSections = Object.keys(selectedSeats);
@@ -102,6 +47,44 @@ const MyBooking = () => {
         ))}
       </div>
     ));
+  };
+
+  const generatePDF = () => {
+    const doc = new jsPDF();
+    doc.setFontSize(12);
+
+    // Ticket Title
+    doc.text('Show Timez Ticket', 20, 20);
+
+    // Movie Info
+    doc.text(`Movie: ${name}`, 20, 30);
+    doc.text(`Description: ${discription}`, 20, 40);
+    doc.text(`Show Time: ${showTime}`, 20, 50);
+    doc.text(`Theater: ${theaterName}`, 20, 60);
+
+    
+    let startY = 70;
+    const selectedSections = Object.keys(selectedSeats);
+    selectedSections.forEach((section) => {
+      doc.text(`Section: ${section}`, 20, startY);
+      startY += 10;
+      Object.keys(selectedSeats[section]).forEach((row) => {
+        doc.text(`Row ${row}: ${selectedSeats[section][row].join(', ')}`, 20, startY);
+        startY += 10;
+      });
+    });
+
+   
+    doc.text(`Total Amount: ₹${totalAmount.toFixed(2)}`, 20, startY + 10);
+
+   
+    if (barcodeRef.current) {
+      const barcodeBase64 = barcodeRef.current.toDataURL('image/png');
+      doc.addImage(barcodeBase64, 'PNG', 20, startY + 20, 50, 20);
+    }
+
+    
+    doc.save(`ticket_${name}.pdf`);
   };
 
   return (
@@ -125,6 +108,8 @@ const MyBooking = () => {
       <div className="ticket-amount">
         <h3>Total Amount: ₹{totalAmount.toFixed(2)}</h3>
       </div>
+      <button className='download-ticket' onClick={generatePDF}>Download Ticket</button>
+      <canvas ref={barcodeRef} style={{ display: 'none' }}></canvas>
     </div>
   );
 };

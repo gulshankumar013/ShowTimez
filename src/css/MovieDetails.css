@@ -45,14 +45,14 @@
 
 .movie-detail h2 {
   font-size: 1.5em;
-  margin-top: 1em; /* Adjusted margin to reduce gap */
+  margin-top: 1em; 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .cast, .crew {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 1em; /* Added margin to adjust gap */
+  margin-bottom: 1em; 
 }
 
 .cast-member, .crew-member {
@@ -106,10 +106,10 @@
 
 .cast-item img, .crew-item img {
   width: 100%;
-  max-width: 150px; /* Adjust as needed */
-  height: 150px; /* Adjust as needed */
+  max-width: 150px;
+  height: 150px; 
   border-radius: 5px;
-  object-fit: cover; /* Ensure the image covers the area */
+  object-fit: cover; 
 }
 
 .cast-item p, .crew-item p {
@@ -118,9 +118,9 @@
 }
 
 .cast-member {
-  margin-bottom: 1em; /* Ensure space between cast and crew */
+  margin-bottom: 1em; 
 }
 
 .crew-member {
-  margin-top: 1em; /* Ensure space between cast and crew */
+  margin-top: 1em; 
 }

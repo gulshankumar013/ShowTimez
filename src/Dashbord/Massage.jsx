@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { FaRegEnvelope } from 'react-icons/fa'; // Message icon
-import axios from 'axios';
-import '../Dashbord/massage.css'; // Import the CSS file for styling
+import { FaRegEnvelope } from 'react-icons/fa'; 
+import '../Dashbord/massage.css'; 
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Massage = () => {
   const [expandedMessageId, setExpandedMessageId] = useState(null);
@@ -25,7 +25,7 @@ const Massage = () => {
   const fetchUsers = async () => {
     try {
       const response = await axios.post("http://localhost:5164/fetchAllMessage", { eventID: "1001" });
-      console.log("API Response:", response.data); // Log the entire response
+      console.log("API Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData && responseData.rData.users) {
@@ -48,11 +48,11 @@ const Massage = () => {
           id: id
         }
       });
-      console.log("Delete Response:", response.data); // Log the entire response
+      console.log("Delete Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData.rMessage === "DELETE SUCCESSFULLY.") {
-          setUsers(users.filter(user => user.id !== id)); // Remove user from local state
+          setUsers(users.filter(user => user.id !== id)); 
           console.log(`Message with ID ${id} deleted successfully`);
         } else {
           console.log("Failed to delete message");

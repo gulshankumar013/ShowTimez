@@ -1,4 +1,4 @@
-// src/Dashbord/AdminLayout.js
+
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
@@ -22,7 +22,7 @@ const AdminLayout = () => {
           <Greeting />
         </div>
         <main>
-          <Outlet /> {/* This will render the child routes */}
+          <Outlet /> 
         </main>
       </div>
     </div>

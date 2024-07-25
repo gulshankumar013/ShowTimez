@@ -1,4 +1,4 @@
-/* src/Dashbord/greeting.css */
+
 
 .greeting {
     padding: 20px;
@@ -54,7 +54,7 @@
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    width: 300px; /* Adjust width as needed */
+    width: 300px; 
     max-height: 400px;
     overflow-y: auto;
   }

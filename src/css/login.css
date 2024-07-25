@@ -183,6 +183,8 @@
 #login-button:hover {
   background-color: rgb(200, 90, 30);
 }
+
+
 /* Zoom In Animation */
 @keyframes zoomIn {
   0% {
@@ -195,7 +197,6 @@
   }
 }
 
-/* Popup Styles */
 .login-popup-container {
   position: fixed;
   top: 0;
@@ -250,13 +251,13 @@
 
 @media (max-width: 1024px) {
   .login-container {
-    width: 60%; /* Adjust container width for tablets */
+    width: 60%; 
   }
 }
 
 @media (max-width: 768px) {
   .login-container {
-    width: 80%; /* Adjust container width for mobile phones */
+    width: 80%; 
   }
   
   .login-tabs {
@@ -276,12 +277,12 @@
   }
   
   .checkbox {
-    margin-left: 0; /* Reset margin for checkbox */
-    margin-bottom: 10px; /* Adjust margin for spacing */
+    margin-left: 0; 
+    margin-bottom: 10px; 
   }
   
   .form-options label {
-    width: auto; /* Adjust width for labels */
-    margin-bottom: 10px; /* Adjust margin for spacing */
+    width: auto; 
+    margin-bottom: 10px; 
   }
 }

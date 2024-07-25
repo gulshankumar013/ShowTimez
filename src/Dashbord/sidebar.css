@@ -1,5 +1,5 @@
 .dashbord-sidebar {
-  width: 250px; /* Expanded width */
+  width: 250px; 
   height: 100vh;
   background-color: #405189;
   color: #fff;
@@ -9,11 +9,11 @@
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
-  transition: width 0.3s ease; /* Animate width transition */
+  transition: width 0.3s ease; 
 }
 
 .dashbord-sidebar.collapsed {
-  width: 80px; /* Collapsed width */
+  width: 80px; 
 }
 
 .sidebar-header {
@@ -41,8 +41,8 @@
   cursor: pointer;
   transition: color 0.3s ease;
   position: absolute;
-  right: 10px; /* Adjust position for better visibility */
-  top: 20px; /* Align with the top of the sidebar header */
+  right: 10px; 
+  top: 20px; 
 }
 
 .toggle-btn:hover {
@@ -56,7 +56,7 @@
 }
 
 .dashbord-sidebar ul li {
-  margin-bottom: 20px; /* Increased margin for spacing */
+  margin-bottom: 20px; 
 }
 
 .dashbord-sidebar ul li a {
@@ -65,7 +65,7 @@
   font-size: 1.1em;
   display: flex;
   align-items: center;
-  padding: 10px; /* Padding inside each link */
+  padding: 10px; 
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
@@ -75,18 +75,18 @@
 }
 
 .dashbord-sidebar ul li a svg {
-  margin-right: 15px; /* Increased margin between icon and text */
-  font-size: 1.5em; /* Default icon size */
-  transition: font-size 0.3s ease, margin-right 0.3s ease; /* Add margin transition */
+  margin-right: 15px; 
+  font-size: 1.5em; 
+  transition: font-size 0.3s ease, margin-right 0.3s ease; 
 }
 
 .dashbord-sidebar.collapsed ul li a {
-  padding: 10px 10px; /* Reduce padding for collapsed state */
+  padding: 10px 10px; 
 }
 
 .dashbord-sidebar.collapsed ul li a svg {
-  margin-right: 0; /* Remove margin in collapsed state */
-  font-size: 2em; /* Larger icon size in collapsed state */
+  margin-right: 0; 
+  font-size: 2em; 
 }
 
 .sidebar-link {
@@ -100,34 +100,34 @@
 }
 
 .sidebar-icon {
-  font-size: 1.5em; /* Default icon size */
+  font-size: 1.5em; 
   transition: font-size 0.3s ease;
 }
 
 .dashbord-sidebar.collapsed .sidebar-icon {
-  font-size: 2em; /* Larger icon size when collapsed */
+  font-size: 2em; 
 }
 
 .dashbord-sidebar.collapsed .sidebar-title {
-  opacity: 0; /* Hide title when collapsed */
+  opacity: 0; 
 }
 
 .dashbord-sidebar.collapsed .sidebar-link {
-  display: none; /* Hide link text when collapsed */
+  display: none; 
 }
 
 .dashbord-sidebar.collapsed .toggle-btn {
-  right: 0; /* Adjust toggle button position when collapsed */
+  right: 0; 
 }
 
-/* Content area adjustments */
+
 .content-area {
-  margin-left: 250px; /* Space for expanded sidebar */
-  transition: margin-left 0.3s ease; /* Animate content shift */
+  margin-left: 250px; 
+  transition: margin-left 0.3s ease; 
 }
 
 .dashbord-sidebar.collapsed ~ .content-area {
-  margin-left: 80px; /* Space for collapsed sidebar */
+  margin-left: 80px; 
 }
 
 .admin-logout-popup {
@@ -136,16 +136,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Make sure background covers entire viewport */
+  background: rgba(0, 0, 0, 0.5); 
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000; /* Ensure it is on top of other content */
+  z-index: 1000; 
   animation: zoomIn 0.3s ease-out;
 }
 
 .logout-popup-content {
-  background: #fff; /* Ensure content background is distinct */
+  background: #fff; 
   padding: 20px;
   border-radius: 8px;
   text-align: center;

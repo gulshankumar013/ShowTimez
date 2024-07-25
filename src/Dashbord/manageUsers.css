@@ -1,4 +1,4 @@
-/* manageUsers.css */
+
 
 
 .manage-user h2{
@@ -25,14 +25,14 @@
     transition: all 0.3s ease-in-out;
     overflow: hidden;
     position: relative;
-    max-height: 160px; /* Adjust based on content size */
+    max-height: 160px; 
   }
   .user-card h3,p{
    font-weight: 200;
   }
   
   .user-card.expanded {
-    max-height: 400px; /* Adjust based on content size */
+    max-height: 400px; 
     transition: max-height 0.3s ease-in-out;
   }
   
@@ -46,14 +46,14 @@
   .user-details {
     margin-top: 16px;
     text-align: left;
-    max-height: 0; /* Initially hidden */
+    max-height: 0; 
     overflow: hidden;
     transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
     opacity: 0;
   }
   
   .user-card.expanded .user-details {
-    max-height: 200px; /* Adjust based on content size */
+    max-height: 200px; 
     opacity: 1;
   }
   

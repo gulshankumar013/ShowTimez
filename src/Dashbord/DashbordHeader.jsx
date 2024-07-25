@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillPersonFill, BsFillBellFill, BsFillGearFill, BsFillSunFill, BsFillMoonFill } from 'react-icons/bs';
-import ProfilePanel from './ProfilePanel'; // Import the ProfilePanel component
+import ProfilePanel from './ProfilePanel'; 
 import './dashbordHeader.css';
 
 const DashbordHeader = ({ collapsed }) => {
@@ -23,9 +23,7 @@ const DashbordHeader = ({ collapsed }) => {
         <h1>Admin Dashboard</h1>
       </div>
       <div className="dashbord-navbar-profile">
-        <Link to="/admin/notifications" className="dashbord-navbar-icon">
-          <BsFillBellFill />
-        </Link>
+        
         <Link to="#" className="dashbord-navbar-icon" onClick={toggleProfilePanel}>
           <BsFillPersonFill /> Profile
         </Link>

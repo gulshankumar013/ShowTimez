@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import MyBookings from "./MyBookings";
 import { FaUpload } from "react-icons/fa";
+import Footer from "./Footer";
 
 const UPDATE_API = "http://localhost:5164/update";
 
@@ -333,6 +334,7 @@ const Profile = () => {
           </div>
         )}
       </div>
+      <Footer/>
     </>
   );
 };

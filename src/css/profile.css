@@ -244,7 +244,7 @@ input:checked + .slider:before {
 .profile-label {
   font-family: "Poppins";
   display: inline-block;
-  width: 30%; /* Adjust the width as needed */
+  width: 30%; 
 }
 
 button:hover {

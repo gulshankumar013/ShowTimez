@@ -20,6 +20,9 @@ import ProfilePanel from './Dashbord/ProfilePanel';
 import Massage from './Dashbord/Massage';
 import AboutUs from './Component/AboutUs';
 import Movieplaying from './Dashbord/Movieplaying';
+import AdminLogout from './Dashbord/AdminLogout';
+import UpcommingMovie from './Dashbord/UpcommingMovie';
+import AddComingMovie from './Dashbord/AddComingMovie';
 
 
 
@@ -87,6 +90,14 @@ const App = () => {
           element: <Addmovieplaying/>
         },
         {
+          path:"/admin/addcommingmovie",
+          element:<AddComingMovie/>
+        },
+        {
+          path:"/admin/upcommingmovie",
+          element:<UpcommingMovie/>
+        },
+        {
           path: "/admin/manageusers",
           element: <ManageUsers/>
         },
@@ -97,6 +108,10 @@ const App = () => {
         {
           path:"/admin/movieplaying",
           element:<Movieplaying/>
+        },
+        {
+          path:"/admin/adminlogout",
+          element:<AdminLogout/>
         }
        
       ]

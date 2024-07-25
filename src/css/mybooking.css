@@ -1,11 +1,35 @@
 .booking-ticket {
-  border: 1px solid #ccc;
+  border: 1px dotted #ccc;
   padding: 20px;
   border-radius: 10px;
   max-width: 600px;
   margin: 20px auto;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-ticket:before,
+.booking-ticket:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.booking-ticket:before {
+  left: -10px;
+}
+
+.booking-ticket:after {
+  right: -10px;
 }
 
 .ticket-header {
@@ -14,11 +38,13 @@
   font-weight: bold;
   color: #333;
   margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .ticket-content {
   display: flex;
-  border-bottom: 2px solid #f4f4f4;
+  border-bottom: 2px dashed #a79e9e;
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
@@ -26,14 +52,15 @@
 .ticket-image-container {
   flex-shrink: 0;
   margin-right: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .ticket-image {
   width: 120px;
   height: 180px;
   object-fit: cover;
-  border-radius: 5px;
-  border: 1px solid #ddd;
 }
 
 .ticket-details {
@@ -59,6 +86,7 @@
 .ticket-seats h3 {
   font-size: 18px;
   color: #333;
+  margin-bottom: 10px;
 }
 
 .selected-section {
@@ -76,6 +104,7 @@
   font-size: 18px;
   font-weight: bold;
   color: #333;
+  text-align: right;
 }
 
 .no-booking-data {
@@ -91,8 +120,29 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .no-booking-data button:hover {
   background-color: #287a99;
+}
+
+button.download-ticket {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #dab831;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+button.download-ticket:hover {
+  background-color: #ac8d12;
 }

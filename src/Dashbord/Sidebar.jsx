@@ -4,21 +4,23 @@ import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsChevronRight, 
 import { FaMessage } from 'react-icons/fa6';
 import "../Dashbord/sidebar.css";
 import { BiSolidCameraMovie } from 'react-icons/bi';
+import AdminLogout from './AdminLogout';
+import { RiMovie2Fill } from 'react-icons/ri';
 
 const Sidebar = ({ collapsed, toggleSidebar }) => {
-  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+  // const [showLogoutPopup, setShowLogoutPopup] = useState(false);
 
-  const handleLogout = () => {
-    // Clear session storage and redirect to logout page
-    sessionStorage.removeItem("userData");
-    sessionStorage.removeItem("adminToken");
-    setShowLogoutPopup(false);
-    window.location.href = "/"; 
-  };
+  // const handleLogout = () => {
+  //   // Clear session storage and redirect to logout page
+  //   sessionStorage.removeItem("userData");
+  //   sessionStorage.removeItem("adminToken");
+  //   setShowLogoutPopup(false);
+  //   window.location.href = "/"; 
+  // };
 
-  const handleClosePopup = () => {
-    setShowLogoutPopup(false);
-  };
+  // const handleClosePopup = () => {
+  //   setShowLogoutPopup(false);
+  // };
 
   return (
     <div className={`dashbord-sidebar ${collapsed ? 'collapsed' : ''}`}>
@@ -42,6 +44,12 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
           </Link>
         </li>
         <li>
+          <Link to="/admin/addcommingmovie">
+            <BsFillArchiveFill className={`sidebar-icon ${collapsed ? 'large-icon' : ''}`} />
+            <span className={`sidebar-link ${collapsed ? 'hidden' : ''}`}>Add Upcomming Movie</span>
+          </Link>
+        </li>
+        <li>
           <Link to="/admin/manageusers">
             <BsPeopleFill className={`sidebar-icon ${collapsed ? 'large-icon' : ''}`} />
             <span className={`sidebar-link ${collapsed ? 'hidden' : ''}`}>Manage Users</span>
@@ -49,8 +57,14 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
         </li>
         <li>
           <Link to="/admin/movieplaying">
-          <BiSolidCameraMovie className={`sidebar-icon ${collapsed ? 'large-icon' : ''}`} />
+            <BiSolidCameraMovie className={`sidebar-icon ${collapsed ? 'large-icon' : ''}`} />
             <span className={`sidebar-link ${collapsed ? 'hidden' : ''}`}>Movie playing</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/admin/upcommingmovie">
+          <RiMovie2Fill className={`sidebar-icon ${collapsed ? 'large-icon' : ''}`} />
+            <span className={`sidebar-link ${collapsed ? 'hidden' : ''}`}>Upcoming Movie</span>
           </Link>
         </li>
         <li>
@@ -60,24 +74,14 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
           </Link>
         </li>
         <li className="logout-item">
-          <Link onClick={() => setShowLogoutPopup(true)}>
+          <Link to="/admin/adminlogout">
             <BsBoxArrowRight className={`sidebar-icon ${collapsed ? 'large-icon' : ''}`} />
             <span className={`sidebar-link ${collapsed ? 'hidden' : ''}`}>Logout</span>
           </Link>
         </li>
       </ul>
 
-      {showLogoutPopup && (
-        <div className="admin-logout-popup">
-          <div className="logout-popup-content">
-            <h2>Are you sure you want to logout?</h2>
-            <div className="logout-popup-buttons">
-              <button onClick={handleLogout}>Yes</button>
-              <button onClick={handleClosePopup}>No</button>
-            </div>
-          </div>
-        </div>
-      )}
+      
     </div>
   );
 };

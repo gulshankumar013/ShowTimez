@@ -2,22 +2,22 @@
   padding: 1%;
   margin-right: 20%;
   height: 10%;
-  width: calc(100% - 250px); /* Adjust width considering the sidebar */
+  width: calc(100% - 250px); 
   background: white;
   color: #b8b6b6;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for distinction */
-  border-bottom: 3px solid #405189; /* Bottom border for highlight */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  border-bottom: 3px solid #405189; 
   position: fixed;
   top: 0;
-  transition: width 0.3s ease; /* Animate width adjustment */
+  transition: width 0.3s ease; 
 }
 
 .dashbord-navbar.collapsed {
-  width: calc(100% - 80px); /* Adjust width for collapsed sidebar */
+  width: calc(100% - 80px); 
 }
 
 .dashbord-navbar-logo {

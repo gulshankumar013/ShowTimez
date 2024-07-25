@@ -34,11 +34,11 @@ const Login = () => {
     };
 
     try {
-      // First, try the admin sign-in API
+      
       const adminResponse = await axios.post('http://localhost:5164/adminSignin', payload);
       if (adminResponse.data.rData.rMessage === "Login Successfully, Welcome!") {
-        // Admin credentials are correct
-        sessionStorage.setItem("adminToken", adminResponse.data.rData.token); // Store the admin token if needed
+       
+        sessionStorage.setItem("adminToken", adminResponse.data.rData.token); 
         setPopupMessage('Login Successful');
         setShowPopup(true);
         setTimeout(() => {
@@ -46,7 +46,7 @@ const Login = () => {
           navigate("/admin");
         }, 3000); // Show popup for 3 seconds before navigating
       } else {
-        // Not admin, try regular user sign-in
+        
         const userResponse = await axios.post('http://localhost:5164/signin', payload);
         if (userResponse.data.rData.rMessage === "Signin Successful") {
           try {

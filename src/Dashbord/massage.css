@@ -13,7 +13,7 @@
   
   .message-card {
     width: 100%;
-    max-width: 100%; /* Adjust as needed */
+    max-width: 100%; 
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -62,7 +62,7 @@
   }
   
   .message-body.expanded {
-    max-height: 500px; /* Adjust based on expected content height */
+    max-height: 500px; 
   }
   
   .message-body p {

@@ -7,8 +7,8 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 
-const FETCH_API = "http://localhost:5164/fetchAllMoviePlaying"; 
-const DELETE_API = "http://localhost:5164/deleteMoviePlaying"; 
+// const FETCH_API = "http://localhost:5164/fetchAllMoviePlaying"; 
+// const DELETE_API = "http://localhost:5164/deleteMoviePlaying"; 
 
 const Addmovieplaying = () => {
 
@@ -67,7 +67,7 @@ const Addmovieplaying = () => {
     };
     try {
       const response = await axios.post("http://localhost:5164/moviePlaying",payload);
-      console.log(response.data, "api response"); // handle response
+      console.log(response.data, "api response"); 
       toast.success('Card added successfully');
       fetchProduct()
       setFormData({
@@ -97,7 +97,7 @@ const Addmovieplaying = () => {
       });
     } catch (error) {
       console.error("Error in adding card up:", error);
-      // Handle error
+    
     }
   };
 
@@ -237,7 +237,7 @@ const [editingUser, setEditingUser] = useState(null);
   const fetchProduct = async () => {
     try {
       const response = await axios.post(FETCH_API, { eventID: "1001" });
-      console.log("API Response:", response.data); // Log the entire response
+      console.log("API Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData && responseData.rData.users) {
@@ -261,13 +261,13 @@ const [editingUser, setEditingUser] = useState(null);
           id: id
         }
       });
-      console.log("Delete Response:", response.data); // Log the entire response
+      console.log("Delete Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData.rMessage === "DELETE SUCCESSFULLY.") {
           toast.success("Product Deleted from Website")
           fetchProduct();
-          setUsers(users.filter(user => user.id !== id)); // Remove user from local state
+          setUsers(users.filter(user => user.id !== id)); 
           console.log(`User with ID ${id} deleted successfully`);
         } else {
           console.log("Failed to delete user");

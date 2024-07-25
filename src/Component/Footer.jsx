@@ -1,9 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../css/footer.css';
+import { toast } from 'react-toastify';
 
 const Footer = () => {
     const navigate = useNavigate();
+    const subscribe = () =>{
+        toast.success("Thanks for Subcsribing")
+    }
 
     return (
         <div className="footer">
@@ -19,21 +23,23 @@ const Footer = () => {
                     <div className="footer-section">
                         <h3>Movies</h3>
                         <ul>
-                            <li>Action</li>
-                            <li>Adventure</li>
-                            <li>Animation</li>
-                            <li>Comedy</li>
-                            <li>Crime</li>
+                            <Link><li>Action</li></Link>
+                            <Link><li>Adventure</li></Link>
+                            <Link><li>Animation</li></Link>
+                            <Link><li>Comedy</li></Link>
+                            <Link><li>Crime</li></Link>
+                            
                         </ul>
                     </div>
                     <div className="footer-section">
                         <h3>Links</h3>
                         <ul>
-                            <li>About</li>
-                            <li>My account</li>
-                            <li>News</li>
-                            <li>Latest Events</li>
-                            <li>Contact</li>
+                            <Link to={"/aboutus"}> <li>About</li></Link>
+                            <Link to={"/profile"}> <li>My account</li></Link>
+                           <Link><li>News</li></Link>
+                            <Link><li>Latest Events</li></Link>
+                            <Link to={"/contactus"}><li>Contact</li></Link>
+                            
                         </ul>
                     </div>
                     <div className="footer-section">
@@ -43,7 +49,7 @@ const Footer = () => {
                         <div className="newsletter-subscribe">
                             <input type="checkbox" id="terms" />
                             <label htmlFor="terms">I agree to all terms and policies of the company</label>
-                            <button className="subscribe-btn">➔</button>
+                            <button className="subscribe-btn" onClick={subscribe} >➔</button>
                         </div>
                     </div>
                 </div>

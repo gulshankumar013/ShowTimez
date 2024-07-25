@@ -154,7 +154,6 @@ const SeatBooking = () => {
       name: 'Movie Ticket Booking',
       description: 'Payment for movie tickets',
       handler: function (response) {
-        console.log(response);
         alert('Payment Successful');
         bookTicket();
       },
@@ -186,7 +185,8 @@ const SeatBooking = () => {
       userId: userId
     };
 
-    navigate("/mybooking", { state: stateData });
+    // navigate("/mybooking", { state: stateData });
+    navigate("/profile", { state: stateData });
   };
   return (
     <>

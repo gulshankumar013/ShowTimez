@@ -10,7 +10,7 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const location = useLocation();
   const navigate = useNavigate(); 
-  const item = location.state?.item || {}; // Provide a default value if location.state is null
+  const item = location.state?.item || {}; 
   // console.log("item", item);
 
   useEffect(() => {
@@ -23,13 +23,13 @@ const MovieDetails = () => {
     const payload = {
       eventID: "1001",
       addInfo: {
-        id: item.id, // Use item.id here
+        id: item.id, 
         name:"",
       },
     };
     try {
       const response = await axios.post(api, payload);
-      console.log("API Response:", response.data); // Log the entire response
+      console.log("API Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData && responseData.rData.users) {

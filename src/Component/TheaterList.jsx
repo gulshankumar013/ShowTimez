@@ -39,9 +39,9 @@ const TheaterList = () => {
 
   const toggleTheaterDetails = (index) => {
     if (expandedTheater === index) {
-      setExpandedTheater(null); // Collapse if already expanded
+      setExpandedTheater(null);
     } else {
-      setExpandedTheater(index); // Expand theater details
+      setExpandedTheater(index); 
     }
   };
 

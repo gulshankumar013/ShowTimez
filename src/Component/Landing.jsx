@@ -22,7 +22,7 @@ const Landing = () => {
   const moviePlay = async () => {
     try {
       const response = await axios.post(api, { eventID: "1001" });
-      console.log("API Response:", response.data); // Log the entire response
+      console.log("API Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData && responseData.rData.users) {
@@ -47,7 +47,7 @@ const Landing = () => {
   const upcomingMovie = async () => {
     try {
       const response = await axios.post(commingApi, { eventID: "1001" });
-      console.log("API Response:", response.data); // Log the entire response
+      console.log("API Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData && responseData.rData.users) {
@@ -83,7 +83,7 @@ const Landing = () => {
               <p>
                 Written By Javier Grillo-Marxuach & Directed by Stephen Surjik
               </p>
-              <button>Book Ticket</button>
+              
             </div>
           </div>
           <div className="carousel-slide">
@@ -91,7 +91,7 @@ const Landing = () => {
             <div className="carousel-content">
               <h2>Wrong Turn Part 2</h2>
               <p>Written and Directed By Alisa Rose/Ireland 2024</p>
-              <button>Book Ticket</button>
+             
             </div>
           </div>
           <div className="carousel-slide">
@@ -99,7 +99,7 @@ const Landing = () => {
             <div className="carousel-content">
               <h2>IF</h2>
               <p>Written & Directed By John Krasinski/2024</p>
-              <button>Book Ticket</button>
+              
             </div>
           </div>
           <div className="carousel-slide">
@@ -107,7 +107,7 @@ const Landing = () => {
             <div className="carousel-content">
               <h2>The Garfield Movie</h2>
               <p>Directed By Mark DIndal</p>
-              <button>Book Ticket</button>
+             
             </div>
           </div>
           <div className="carousel-slide">
@@ -115,7 +115,7 @@ const Landing = () => {
             <div className="carousel-content">
               <h2>KALKI 2898-AD</h2>
               <p>Directed By Nag Aswin.</p>
-              <button>Book Ticket</button>
+              
             </div>
           </div>
           <div className="carousel-slide">
@@ -123,7 +123,7 @@ const Landing = () => {
             <div className="carousel-content">
               <h2>FURIOSA</h2>
               <p>Directed By George Miller</p>
-              <button>Book Ticket</button>
+              
             </div>
           </div>
         </Slider>
@@ -216,7 +216,7 @@ const Landing = () => {
       </div>
 
       <div className="movie-playing">
-        <h1 style={{ color: "rgb(235,77,99)" }}>Upcomming Movie</h1>
+        <h1>Upcomming Movie</h1>
       </div>
 
       <div className="premiere-child">
