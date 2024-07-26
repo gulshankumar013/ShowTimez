@@ -14,7 +14,7 @@ const UpcommingMovie = () => {
   
     const moviePlay = async () => {
       try {
-        const response = await axios.post("http://localhost:5164/fetchUpcomingMovie", { eventID: "1001" });
+        const response = await axios.post("http://localhost:5165/fetchUpcomingMovie", { eventID: "1001" });
         console.log("API Response:", response.data); 
         if (response.status === 200) {
           const responseData = response.data;
@@ -36,7 +36,7 @@ const UpcommingMovie = () => {
   
     const handleDelete = async (id) => {
       try {
-        const response = await axios.post("http://localhost:5164/deleteupcomingMovie", {
+        const response = await axios.post("http://localhost:5165/deleteupcomingMovie", {
           eventID: "1001",
           addInfo: { id }
         });

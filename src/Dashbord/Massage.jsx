@@ -24,7 +24,7 @@ const Massage = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.post("http://localhost:5164/fetchAllMessage", { eventID: "1001" });
+      const response = await axios.post("http://localhost:5165/fetchAllMessage", { eventID: "1001" });
       console.log("API Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;
@@ -42,7 +42,7 @@ const Massage = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.post("http://localhost:5164/deleteMessageId", {
+      const response = await axios.post("http://localhost:5165/deleteMessageId", {
         eventID: "1001",
         addInfo: {
           id: id

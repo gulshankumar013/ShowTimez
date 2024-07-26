@@ -4,7 +4,7 @@ import '../css/MovieDetails.css';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 
-const api = "http://localhost:5164/fetchMoviePlayingById";
+const api = "http://localhost:5165/fetchMoviePlayingById";
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);

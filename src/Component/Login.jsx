@@ -35,7 +35,7 @@ const Login = () => {
 
     try {
       
-      const adminResponse = await axios.post('http://localhost:5164/adminSignin', payload);
+      const adminResponse = await axios.post('http://localhost:5165/adminSignin', payload);
       if (adminResponse.data.rData.rMessage === "Login Successfully, Welcome!") {
        
         sessionStorage.setItem("adminToken", adminResponse.data.rData.token); 
@@ -47,10 +47,10 @@ const Login = () => {
         }, 3000); // Show popup for 3 seconds before navigating
       } else {
         
-        const userResponse = await axios.post('http://localhost:5164/signin', payload);
+        const userResponse = await axios.post('http://localhost:5165/signin', payload);
         if (userResponse.data.rData.rMessage === "Signin Successful") {
           try {
-            const response2 = await axios.post("http://localhost:5164/fetchUser", {
+            const response2 = await axios.post("http://localhost:5165/fetchUser", {
               eventID: "1001",
               addInfo: {
                 email: formData.email

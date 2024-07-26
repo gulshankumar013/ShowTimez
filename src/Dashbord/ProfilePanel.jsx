@@ -15,7 +15,7 @@ const ProfilePanel = ({ isOpen, onClose }) => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.post("http://localhost:5164/adminfetch", { eventID: "1001" });
+      const response = await axios.post("http://localhost:5165/adminfetch", { eventID: "1001" });
       console.log("API Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;

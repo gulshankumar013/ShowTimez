@@ -7,8 +7,8 @@ import "../css/landing.css"; // Import your CSS for additional styling if needed
 import Footer from "./Footer";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
-const api = "http://localhost:5164/fetchmoviePlaying";
-const commingApi = "http://localhost:5164/fetchUpcomingMovie";
+const api = "http://localhost:5165/fetchmoviePlaying";
+const commingApi = "http://localhost:5165/fetchUpcomingMovie";
 
 const Landing = () => {
   const [movie, setMovie] = useState([]);

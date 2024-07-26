@@ -30,7 +30,7 @@ const ContactUs = () => {
               }
         };
         try{
-            const response = await axios.post('http://localhost:5164/contactUs',payload);
+            const response = await axios.post('http://localhost:5165/contactUs',payload);
             console.log(response.data,'api response');
             if(response.data.rData.rMessage == "Request Added successfully")
                 toast.success('  Queries has been send to customerCare', {

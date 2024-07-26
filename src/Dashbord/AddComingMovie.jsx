@@ -24,7 +24,7 @@ const AddComingMovie = () => {
           },
         };
         try {
-          const response = await axios.post("http://localhost:5164/upcomingMovie",payload);
+          const response = await axios.post("https://localhost:5164/upcomingMovie",payload);
           console.log(response.data, "api response"); 
           toast.success('Card added successfully');
           

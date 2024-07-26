@@ -8,7 +8,7 @@ import MyBookings from "./MyBookings";
 import { FaUpload } from "react-icons/fa";
 import Footer from "./Footer";
 
-const UPDATE_API = "http://localhost:5164/update";
+const UPDATE_API = "http://localhost:5165/update";
 
 const Profile = () => {
   const [userData, setUserData] = useState({});
@@ -137,7 +137,7 @@ const Profile = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:5164/update", payload);
+      const response = await axios.post("http://localhost:5165/update", payload);
       console.log(response.data, "api response");
       toast.success("Profile Updated");
     } catch (error) {
@@ -157,7 +157,7 @@ const Profile = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:5164/updateProfileImage", payload);
+      const response = await axios.post("http://localhost:5165/updateProfileImage", payload);
       toast.success("Image added successfully");
       fetchProfileImage();
     } catch (error) {
@@ -175,7 +175,7 @@ const Profile = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:5164/fetchProfileImage", payload);
+      const response = await axios.post("http://localhost:5165/fetchProfileImage", payload);
       setFetchedImage(response.data.rData.profile);
       setPreviewImage(response.data.rData.profile);
     } catch (error) {

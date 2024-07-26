@@ -22,7 +22,7 @@ const ManageUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.post("http://localhost:5164/fetchAllUser", { eventID: "1001" });
+      const response = await axios.post("http://localhost:5165/fetchAllUser", { eventID: "1001" });
       console.log("API Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;
@@ -40,7 +40,7 @@ const ManageUsers = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.post("http://localhost:5164/delete", {
+      const response = await axios.post("http://localhost:5165/delete", {
         eventID: "1001",
         addInfo: {
           id: id

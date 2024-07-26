@@ -26,7 +26,7 @@ const Dashbordhome = () => {
 
   const fetchTotalUsers = async () => {
     try {
-      const response = await axios.post("http://localhost:5164/totaluser", { eventID: "1001" });
+      const response = await axios.post("http://localhost:5165/totaluser", { eventID: "1001" });
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData && responseData.rData.total_users) {
@@ -42,7 +42,7 @@ const Dashbordhome = () => {
 
   const fetchTotalMovies = async () => {
     try {
-      const response = await axios.post("http://localhost:5164/totalmovieplaying", { eventID: "1001" });
+      const response = await axios.post("http://localhost:5165/totalmovieplaying", { eventID: "1001" });
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData && responseData.rData.total_movie_playing) {
@@ -58,7 +58,7 @@ const Dashbordhome = () => {
 
   const fetchTotalUpcomingMovies = async () => {
     try {
-      const response = await axios.post("http://localhost:5164/totalcommingplaying", { eventID: "1001" });
+      const response = await axios.post("http://localhost:5165/totalcommingplaying", { eventID: "1001" });
       if (response.status === 200) {
         const responseData = response.data;
         if (responseData.rData && responseData.rData.total_coming_movie) {

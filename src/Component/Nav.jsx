@@ -43,7 +43,7 @@ const Nav = () => {
       },
     };
     try {
-      const response = await axios.post("http://localhost:5164/fetchMoviePlayingById", payload);
+      const response = await axios.post("http://localhost:5165/fetchMoviePlayingById", payload);
       console.log("API Response:", response.data); 
       if (response.status === 200) {
         const responseData = response.data;

@@ -42,7 +42,7 @@ const Register = () => {
       },
     };
     try {
-      const response = await axios.post('http://localhost:5164/signup', payload);
+      const response = await axios.post('http://localhost:5165/signup', payload);
       console.log(response.data, 'api response');
       navigate('/login');
       
