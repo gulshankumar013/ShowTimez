@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import axios from 'axios';
 import "../css/login.css";
+import CryptoJS from 'crypto-js';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -25,11 +26,12 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const hash = CryptoJS.MD5(formData.password).toString();
     const payload = {
       eventID: "1001",
       addInfo: {
         email: formData.email,
-        password: formData.password,
+        password: hash,
       }
     };
 

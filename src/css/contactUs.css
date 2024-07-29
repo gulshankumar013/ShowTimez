@@ -157,3 +157,41 @@ textarea {
  
 }
 
+/* Media Queries for responsiveness */
+@media (min-width: 768px) {
+    .contact-us-container {
+        flex-direction: row;
+        height: auto;
+    }
+
+    .contact-us-image {
+        display: flex;
+    }
+
+    .contact-us-form {
+        padding: 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .contact-us-body h1 {
+        font-size: 2.5em;
+    }
+
+    .contact-us-body h2 {
+        font-size: 1.5em;
+    }
+
+    .contact-us-form h1 {
+        font-size: 2.5em;
+    }
+
+    .contact-us-form {
+        padding: 50px;
+    }
+
+    .contact-us-image img {
+        max-width: 128%;
+        height: 109%;
+    }
+}

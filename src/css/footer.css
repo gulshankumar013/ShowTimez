@@ -1,5 +1,5 @@
 .footer {
-  
+  width: 100vw;
    padding-top: 3%;
     /* border: 1px solid orange; */
     background-color: #000;
@@ -20,9 +20,9 @@
     width: 100%;
     max-width: 1200px;
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap in smaller screens */
+    flex-wrap: wrap; 
     justify-content: space-between;
-    padding: 5px; /* Increase padding for better spacing */
+    padding: 5px; 
 }
 
 .footer-left {
