@@ -23,6 +23,7 @@ import Movieplaying from './Dashbord/Movieplaying';
 import AdminLogout from './Dashbord/AdminLogout';
 import UpcommingMovie from './Dashbord/UpcommingMovie';
 import AddComingMovie from './Dashbord/AddComingMovie';
+import TicketBooked from './Dashbord/TicketBooked';
 
 
 
@@ -112,6 +113,10 @@ const App = () => {
         {
           path:"/admin/adminlogout",
           element:<AdminLogout/>
+        },
+        {
+          path:"/admin/ticketbooked",
+          element:<TicketBooked/>
         }
        
       ]

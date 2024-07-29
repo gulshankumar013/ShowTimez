@@ -11,9 +11,8 @@ const TheaterList = () => {
   const { image, aboutMovie, name, movie_time, discription } = location.state || {};
   const [theater, setTheater] = useState([]);
   const [expandedTheater, setExpandedTheater] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(null);
   const navigate = useNavigate();
-
-  // console.log("discription", discription);
 
   useEffect(() => {
     theaterList();
@@ -41,12 +40,22 @@ const TheaterList = () => {
     if (expandedTheater === index) {
       setExpandedTheater(null);
     } else {
-      setExpandedTheater(index); 
+      setExpandedTheater(index);
     }
   };
 
-  const bookTicket = (theaterName,showTime) => {
-    navigate("/seatbooking", { state: { image, name, movie_time, discription,showTime,theaterName } });
+  const bookTicket = (theaterName, showTime) => {
+    navigate("/seatbooking", {
+      state: {
+        image,
+        name,
+        movie_time,
+        discription,
+        showTime,
+        theaterName,
+        date: selectedDate,
+      },
+    });
   };
 
   return (
@@ -64,12 +73,12 @@ const TheaterList = () => {
         </div>
         <div className='Date'>
           <div className='Date-child'>
-            <button>18</button>
-            <button>19</button>
-            <button>20</button>
-            <button>21</button>
-            <button>22</button>
-            <button>23</button>
+            <button onClick={() => setSelectedDate('25')}>25</button>
+            <button onClick={() => setSelectedDate('26')}>26</button>
+            <button onClick={() => setSelectedDate('27')}>27</button>
+            <button onClick={() => setSelectedDate('28')}>28</button>
+            <button onClick={() => setSelectedDate('29')}>29</button>
+            <button onClick={() => setSelectedDate('30')}>30</button>
           </div>
         </div>
         <div className='TheaterList'>
@@ -110,6 +119,6 @@ const TheaterList = () => {
       <Footer />
     </>
   );
-}
+};
 
 export default TheaterList;

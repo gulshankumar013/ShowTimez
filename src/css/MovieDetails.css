@@ -17,10 +17,10 @@
 }
 
 .movie-detail {
-  
   max-width: 1200px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
+  padding-top: 80px; /* Adjust this value according to your navbar height */
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s forwards;

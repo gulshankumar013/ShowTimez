@@ -6,6 +6,7 @@ import "../Dashbord/sidebar.css";
 import { BiSolidCameraMovie } from 'react-icons/bi';
 import AdminLogout from './AdminLogout';
 import { RiMovie2Fill } from 'react-icons/ri';
+import { IoTicket, IoTicketOutline } from 'react-icons/io5';
 
 const Sidebar = ({ collapsed, toggleSidebar }) => {
   // const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -65,6 +66,12 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
           <Link to="/admin/upcommingmovie">
           <RiMovie2Fill className={`sidebar-icon ${collapsed ? 'large-icon' : ''}`} />
             <span className={`sidebar-link ${collapsed ? 'hidden' : ''}`}>Upcoming Movie</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/admin/ticketbooked">
+          <IoTicket className={`sidebar-icon ${collapsed ? 'large-icon' : ''}`} />
+            <span className={`sidebar-link ${collapsed ? 'hidden' : ''}`}>Booked Ticked</span>
           </Link>
         </li>
         <li>

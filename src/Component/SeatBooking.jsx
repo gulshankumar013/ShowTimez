@@ -11,7 +11,7 @@ const SeatBooking = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
-  const { image, name, discription, showTime, theaterName, movie_time } = location.state;
+  const { image, name, discription, showTime, theaterName, movie_time ,date} = location.state;
   const userdata = sessionStorage.getItem('userData');
 
   // This is to provide authentication without login user cannot book ticket
@@ -37,6 +37,7 @@ const SeatBooking = () => {
     const parsedUserData = JSON.parse(userdata);
     userId = parsedUserData.id;
     console.log("userdata id:", parsedUserData.id);
+    
   } else {
     console.log("No userdata found in sessionStorage");
   }
@@ -178,6 +179,7 @@ const SeatBooking = () => {
       name: name,
       movie_time: movie_time,
       discription: discription,
+      date:date,
       showTime: showTime,
       theaterName: theaterName,
       selectedSeats: clonedSelectedSeats,
@@ -227,6 +229,7 @@ const SeatBooking = () => {
             <div className="booking-details">
               {name && <h2 className="movie-name">Movie - {name}</h2>}
               {discription && <p className="show-time">{discription}</p>}
+              {date && <p className="show-time">Date - {date}</p>}
               {showTime && <p className="show-time">Show Time - {showTime}</p>}
               {theaterName && <p className="show-time">At - {theaterName}</p>}
               <p className="cinema-location"></p>
