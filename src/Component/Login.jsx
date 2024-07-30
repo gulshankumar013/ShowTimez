@@ -132,7 +132,7 @@ const Login = () => {
               <div className='checkbox'> 
                 <input type="checkbox" /> 
               </div>
-              <Link to="/forgot-password">Lost your password?</Link>
+              <Link to="/verifyemail">Lost your password?</Link>
             </div>
             <button id='login-button' type="submit">Log in</button>
           </form>

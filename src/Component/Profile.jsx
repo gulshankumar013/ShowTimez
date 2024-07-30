@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import MyBookings from "./MyBookings";
 import { FaUpload } from "react-icons/fa";
 import Footer from "./Footer";
+import Giftcard from "./Giftcard";
 
 const UPDATE_API = "http://localhost:5165/update";
 
@@ -263,8 +264,8 @@ const Profile = () => {
         return <div>Preferences content goes here.</div>;
       case "Saved Cards":
         return <div>Saved Cards content goes here.</div>;
-      case "Gift Card Balance":
-        return <div>Gift Card Balance content goes here.</div>;
+      case " Redeem Gift Card ":
+        return <Giftcard />;
       default:
         return null;
     }
@@ -299,7 +300,9 @@ const Profile = () => {
               <li className={selectedTab === "Movie Alerts" ? "active" : ""} onClick={() => setSelectedTab("Movie Alerts")}>Movie Alerts</li>
               <li className={selectedTab === "Preferences" ? "active" : ""} onClick={() => setSelectedTab("Preferences")}>Preferences</li>
               <li className={selectedTab === "Saved Cards" ? "active" : ""} onClick={() => setSelectedTab("Saved Cards")}>Saved Cards</li>
-              <li className={selectedTab === "Gift Card Balance" ? "active" : ""} onClick={() => setSelectedTab("Gift Card Balance")}>Gift Card Balance</li>
+              <li className={selectedTab === "Redeem Gift Card" ? "active" : ""} onClick={() => setSelectedTab("Redeem Gift Card")}>
+              Redeem Gift Card
+            </li>
             </ul>
             <div className="profile-sidebar-footer">
               <div className="profile-sidebar-notifications">

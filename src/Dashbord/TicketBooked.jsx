@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { FaTicketAlt } from 'react-icons/fa'; 
-import '../Dashbord/ticketBooked.css'; 
+import { IoTicketSharp } from 'react-icons/io5';
+import '../Dashbord/ticketBooked.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -43,9 +43,7 @@ const TicketBooked = () => {
     try {
       const response = await axios.post("http://localhost:5165/deleteTicketId", {
         eventID: "1001",
-        addInfo: {
-          id: id
-        }
+        addInfo: { id: id }
       });
       console.log("Delete Response:", response.data); 
       if (response.status === 200) {
@@ -66,14 +64,37 @@ const TicketBooked = () => {
     setExpandedTicketId(expandedTicketId === id ? null : id);
   };
 
+
+
+  // this function is use for pase the object of array and render into a simple form of selected seat....
+  const formatSelectedSeats = (selectedSeats) => {
+    try {
+      const parsedSeats = JSON.parse(selectedSeats);
+      const formattedSeats = [];
+      for (const [section, rows] of Object.entries(parsedSeats)) {
+        for (const [row, seats] of Object.entries(rows)) {
+          if (Array.isArray(seats)) {
+            formattedSeats.push(`${section}: ${row} ${seats.join(', ')}`);
+          } else {
+            formattedSeats.push(`${section}: ${row} ${seats}`);
+          }
+        }
+      }
+      return formattedSeats.join(' | ');
+    } catch (error) {
+      console.error("Error parsing selectedSeats:", error);
+      return selectedSeats;
+    }
+  };
+
   return (
     <div className="ticket-booked-container">
-        <h2>Booked Tickets</h2>
+      <h2>Booked Tickets</h2>
       {tickets.map((ticket) => (
         <div key={ticket.id} className="ticket-card">
           <div className="ticket-header">
             <div className="ticket-title">
-              <FaTicketAlt className="ticket-icon" />
+              <IoTicketSharp className="ticket-icon" />
               <span>{ticket.name}</span>
             </div>
             <button className="ticket-toggle-button" onClick={() => toggleExpand(ticket.id)}>
@@ -81,12 +102,16 @@ const TicketBooked = () => {
             </button>
           </div>
           <div className={`ticket-body ${expandedTicketId === ticket.id ? 'expanded' : 'collapsed'}`}>
-            <img src={ticket.image} alt={`${ticket.name} poster`} className="ticket-image" />
-            <p><strong>Theater:</strong> {ticket.theaterName}</p>
-            <p><strong>Show Time:</strong> {ticket.showTime}</p>
-            <p><strong>Description:</strong> {ticket.discription}</p>
-            <p><strong>Selected Seats:</strong> {ticket.selectedSeats}</p>
-            <p><strong>Total Amount:</strong> ${ticket.totalAmount}</p>
+            <div className="ticket-body-content">
+              <img src={ticket.image} alt={`${ticket.name} poster`} className="ticket-image" />
+              <div className="ticket-details">
+                <p><strong>Theater:</strong> {ticket.theaterName}</p>
+                <p><strong>Show Time:</strong> {ticket.showTime}</p>
+                <p><strong>Description:</strong> {ticket.discription}</p>
+                <p><strong>Selected Seats:</strong> {formatSelectedSeats(ticket.selectedSeats)}</p>
+                <p><strong>Total Amount:</strong> {ticket.totalAmount}</p>
+              </div>
+            </div>
             <button className="delete-button" onClick={() => handleDelete(ticket.id)}>Delete</button>
           </div>
         </div>
@@ -96,4 +121,3 @@ const TicketBooked = () => {
 };
 
 export default TicketBooked;
-

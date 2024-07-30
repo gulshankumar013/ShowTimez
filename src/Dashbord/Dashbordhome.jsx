@@ -3,6 +3,7 @@ import { ResponsiveContainer, BarChart, Bar, CartesianGrid, XAxis, YAxis, Toolti
 import "../Dashbord/dashbordhome.css";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import MovieChart from './MovieChart';
 
 const Dashbordhome = () => {
   const [totalUsers, setTotalUsers] = useState(0);
@@ -116,18 +117,7 @@ const Dashbordhome = () => {
       </div>
       <div className="charts">
         <div className="chart-container">
-          <h3>Bar Chart</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="pv" fill="#8884d8" />
-              <Bar dataKey="uv" fill="#82ca9d" />
-            </BarChart>
-          </ResponsiveContainer>
+          <MovieChart/>
         </div>
 
         <div className="chart-container">
@@ -165,6 +155,7 @@ const Dashbordhome = () => {
               <Tooltip />
               <Legend />
             </PieChart>
+            
           </ResponsiveContainer>
         </div>
       </div>

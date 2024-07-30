@@ -24,6 +24,10 @@ import AdminLogout from './Dashbord/AdminLogout';
 import UpcommingMovie from './Dashbord/UpcommingMovie';
 import AddComingMovie from './Dashbord/AddComingMovie';
 import TicketBooked from './Dashbord/TicketBooked';
+import { Chart } from 'chart.js';
+import MovieChart from './Dashbord/MovieChart';
+import Giftcard from './Component/Giftcard';
+import VerifyEmail from './Component/VerifyEmail';
 
 
 
@@ -74,7 +78,16 @@ const App = () => {
         {
           path:"/aboutus",
           element:<AboutUs/>
+        },
+        {
+          path:"/giftcard",
+          element:<Giftcard/>
+        },
+        {
+          path:"/verifyemail",
+          element:<VerifyEmail/>
         }
+       
               
       ]
     },
@@ -117,8 +130,16 @@ const App = () => {
         {
           path:"/admin/ticketbooked",
           element:<TicketBooked/>
+        },
+        {
+          path:"/admin/chart",
+          element:<Chart/>
+        },
+        {
+          path:"/admin/moviechart",
+          element:<MovieChart/>
         }
-       
+        
       ]
     },
     {
