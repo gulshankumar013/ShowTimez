@@ -194,7 +194,7 @@ const Landing = () => {
       </div>
 
       <div className="movie-playing">
-      <img src="cenema background.jpg" alt="Background" />
+      
         <h3>Watch New Movies</h3>
         <h1>Movie Now Playing</h1>
       </div>
