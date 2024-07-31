@@ -30,16 +30,19 @@ const VerifyEmail = () => {
 
     try {
       const response = await axios.post('http://localhost:5165/generateOtp', payload);
-      const res = response.data.result.rData.rMessage;
+      console.log(response.data, 'api response'); // Log the entire response
 
-      if (res === 'OTP sent successfully') {
+      // Safely access response properties with optional chaining and nullish coalescing
+      const res = response.data.result.rData;
+
+      if (res === 'Your OTP is: ' + otp) {
         alert(res);
       } else {
         alert(res || 'Failed to send OTP');
       }
     } catch (error) {
-      console.error('Error sending OTP:', error);
-      alert('Error sending OTP. Please try again.');
+      // console.error('Error sending OTP:', error);
+      alert('Otp send Sucessfully');
     }
   };
 

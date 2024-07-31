@@ -28,6 +28,7 @@ import { Chart } from 'chart.js';
 import MovieChart from './Dashbord/MovieChart';
 import Giftcard from './Component/Giftcard';
 import VerifyEmail from './Component/VerifyEmail';
+import Otpverify from './Component/Otpverify';
 
 
 
@@ -86,6 +87,10 @@ const App = () => {
         {
           path:"/verifyemail",
           element:<VerifyEmail/>
+        },
+        {
+          path:"/otpverify",
+          element:<Otpverify/>
         }
        
               
